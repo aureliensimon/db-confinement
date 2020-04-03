@@ -1,0 +1,29 @@
+.navbar {
+    height: 100px !important;
+    background-color: var(--purple) !important;
+}
+.navbar-brand {
+    font-size: 3vmin;
+    font-weight: 800;
+    margin-left: 2rem !important;
+}
+.navbar-brand span {
+    color: var(--green) !important;
+}
+.nav-link {
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+}
+.nav-item {
+    height: 100px;
+    line-height: 75px;
+    font-size: 2vmin;
+    font-weight: 500;
+}
+.active {
+    border-bottom: 4px solid var(--green);
+}
+.ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+}

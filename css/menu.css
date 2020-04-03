@@ -1,0 +1,54 @@
+#title-menu {
+    display: block;
+    color: var(--dark-purple);
+    font-size: 4vmin;
+    font-weight: 700;
+    margin-left: 3rem;
+    margin-top: 50px;
+}
+
+.menu-field {
+    margin: 50px 0px;
+    margin-left: 3rem;
+}
+.field-name {
+    font-size: 1.8vmin;
+    font-weight: 200;
+    color: var(--dark-purple);
+}
+.field-input {
+    width: 50vmin;
+    height: 50px;
+}
+
+#double-name {
+    width: 40vmin;
+    height: 50px;
+}
+#double-extension {
+    width: 9.5vmin;
+    height: 50px;
+}
+
+#buttons {
+    margin-top: 75px;
+    margin-left: 3rem;
+}
+.menu-button {
+    border: none;
+    border-radius: 5px;
+
+    width: 50vmin;
+    height: 50px;
+    margin-bottom: 20px;
+
+    color: white;
+    font-size: 2.5vmin;
+    font-weight: 700;
+}
+#button-save {
+    background-color: var(--green);
+}
+#button-dl {
+    background-color: var(--red);
+}

@@ -1,0 +1,11 @@
+/* Theme variables */
+:root {
+    --green: #00B5AE;
+    --red: #DB2929;
+    --purple: #39375B;
+    --dark-purple: #2D2C3F;
+}
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
