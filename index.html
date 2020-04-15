@@ -38,37 +38,54 @@
         </div>
       </nav>
 
+    <span id="title-menu">Générer des données</span>
+    <div class="d-flex bd-highlight" >
     <!-- LEFT MENU -->
-    <div id="left-menu">
-      <span id="title-menu">Générer des données</span>
+      <div id="left-menu" class="p-2 w-50 bd-highlight">
+       
 
-      <div class="menu-field">
-        <span class="field-name">Nom du modèle</span>
-        <br>
-        <input class="field-input">
-      </div>
-      <div class="menu-field">
-        <span class="field-name">Nom du fichier de sortie</span>
-        <br>
-        <div id="field-double-input">
-          <input id="double-name">
-          <select id="double-extension">
-            <option>.sql</option>
-            <option>.csv</option>
-          </select>
+        <div class="menu-field">
+          <span class="field-name">Nom du modèle</span>
+          <br>
+          <input class="field-input">
+        </div>
+        <div class="menu-field">
+          <span class="field-name">Nom du fichier de sortie</span>
+          <br>
+          <div id="field-double-input">
+            <input id="double-name">
+            <select id="double-extension">
+              <option>.sql</option>
+              <option>.csv</option>
+            </select>
+          </div>
+        </div>
+        <div class="menu-field">
+          <span class="field-name">Nombre de lignes</span>
+          <br>
+          <input class="field-input">
+        </div>
+
+        <div id="buttons">
+          <button class="menu-button" id="button-save">SAUVEGARDER</button>
+          <br>
+          <button class="menu-button" id="button-dl">TELECHARGER</button>
         </div>
       </div>
-      <div class="menu-field">
-        <span class="field-name">Nombre de lignes</span>
-        <br>
-        <input class="field-input">
-      </div>
 
-      <div id="buttons">
-        <button class="menu-button" id="button-save">SAUVEGARDER</button>
-        <br>
-        <button class="menu-button" id="button-dl">TELECHARGER</button>
+
+      <!--RIGHT MENU-->
+      <div id="right-menu" class="p-2 w-50 bd-highlight">
+        <div id="choix_type" class="menu-field">
+          <span  class="field-name" >Choisissez votre nouveau type :</span>
+          <select class="field-input">
+            <option value="int">int</option>
+            <option value="varchar">varchar</option>
+          </select>
+          <button id="button-add">+</button>
+        </div>
       </div>
     </div>
+
 </body>
 </html>
