@@ -31,7 +31,7 @@
     height: 50px;
 }
 
-#buttons {
+.buttons {
     margin-top: 75px;
     margin-left: 3rem;
 }
@@ -53,6 +53,9 @@
 #button-dl {
     background-color: var(--red);
 }
+#button_ajouter{
+    background-color: var(--green);
+}
 
 #button-add{
 
@@ -62,9 +65,21 @@
 
     width: 10vmin;
     height: 50px;
-    margin-bottom: 20px;
 
     color: white;
     font-size: 2.5vmin;
     font-weight: 700;
 }
+
+#form_type_int{
+    display: none;
+}
+
+#form_type_varchar{
+    display: block;
+}
+
+#form_type_date{
+    display: none;
+}
+
