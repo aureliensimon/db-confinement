@@ -98,3 +98,65 @@
 #form_type_date{
     display: none;
 }
+
+#tableau-head{
+    width: 90%;
+    height: 50px;
+    background-color: var(--purple);
+    color: white;
+    text-align: center;  
+}
+
+.suppr{
+    width: 10%;
+    border: solid 1px var(--purple) ;
+
+}
+
+.nom{
+    width: 25%;
+    border: solid 1px var(--purple) ;
+
+}
+
+.taille{
+    width: 10%;
+    border: solid 1px var(--purple) ;
+
+}
+
+.parametres{
+    width: 40%;
+    border: solid 1px var(--purple) ;
+
+}
+
+.type{
+    width: 15%;
+    border: solid 1px var(--purple) ;
+
+}
+
+#tableau{
+    width: 100%;
+    height: 50px;
+    
+}
+
+#tableau-lignes{
+    width: 90%;
+    height: 30vh;
+}
+
+.ligne{
+    text-align: center;
+}
+
+#right-menu{
+    width: 65%;
+
+}
+
+#left-menu{
+    width: 35%;
+}
