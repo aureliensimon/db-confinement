@@ -38,11 +38,26 @@
         </div>
       </nav>
 
-    <span id="title-menu">Générer des données</span>
+    <div class="d-flex bd-highlight" >
+      <span class="p-2 w-25 bd-highlight" id="title-menu">Générer des données</span>
+      <div id="new-item-generator" class="p-2 w-75 bd-highlight">
+        <div id="choix_type">
+          <span class="field-name">Nouveau type</span>
+          <br>
+          <select class="small-input">
+            <option value="int">int</option>
+            <option value="varchar">varchar</option>
+          </select>
+        </div>
+        <?php include 'html/form-date.html';?>
+        <?php include 'html/form-number.html';?>
+        <?php include 'html/form-text.html';?>
+      </div>
+    </div>
+
     <div class="d-flex bd-highlight" >
     <!-- LEFT MENU -->
       <div id="left-menu" class="p-2 w-50 bd-highlight">
-       
 
         <div class="menu-field">
           <span class="field-name">Nom du modèle</span>
@@ -76,91 +91,7 @@
 
       <!--RIGHT MENU-->
       <div id="right-menu" class="p-2 w-50 bd-highlight">
-        <div id="choix_type" class="menu-field">
-          <span  class="field-name" >Choisissez votre nouveau type</span>
-          <br>
-          <select class="field-input">
-            <option value="int">int</option>
-            <option value="varchar">varchar</option>
-          </select>
-          <button id="button-add">+</button>
-        </div>
-
-
- <!------------------------------formulaire pour type de champs entier,float --------------------------------------------->
-
-
-        <div id="form_type_int" >
-          <form action="">
-            <div class="menu-field">
-              <span class="field-name">Valeur minimal</span>
-              <br>
-              <input class="field-input">
-            </div>
-            <div class="menu-field">
-              <span class="field-name">Valeur maximal</span>
-              <br>
-              <input class="field-input">
-            </div>
-            <div class="buttons">
-              <button class="menu-button" id="button_ajouter">AJOUTER</button>
-            </div>
-          </form>
-        </div>
-
-
-
-        <!------------------------------formulaire pour type de champs texte--------------------------------------------->
-
-
-
-        <div id="form_type_varchar">
-          <form action="">
-            <div class="menu-field">
-              <span class="field-name">Taille maximal</span>
-              <br>
-              <input class="field-input">
-            </div>
-            <div id="choix_fichier" class="menu-field">
-              <span  class="field-name" >Choisissez votre genre de mot(s)</span>
-              <br>
-              <select class="field-input">
-                <option value="int">Prénom</option>
-                <option value="varchar">Nom de famille</option>
-                <option value="varchar">Nom propre</option>
-                <option value="varchar">Nom commun</option>
-                <option value="varchar">Ville</option>
-                <option value="varchar">Verbe</option>
-              </select>
-            </div>
-            <div class="buttons">
-              <button class="menu-button" id="button_ajouter">AJOUTER</button>
-            </div>
-          </form>
-        </div>
-
-
-         <!------------------------------formulaire pour type de champs date--------------------------------------------->
-
-
-
-        <div id="form_type_date">
-          <form action="">
-            <div class="menu-field">
-              <span class="field-name">Date la plus ancienne</span>
-              <br>
-              <input type="date" class="field-input">
-            </div>
-            <div class="menu-field">
-              <span class="field-name">Date la plus récente</span>
-              <br>
-              <input type="date" class="field-input">
-            </div>
-            <div class="buttons">
-              <button class="menu-button" id="button_ajouter">AJOUTER</button>
-            </div>
-          </form>
-        </div>
+        
       </div>
     </div>
 
