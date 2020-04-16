@@ -11,6 +11,7 @@
 #new-item-generator {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between;
     margin-left: 100px;
     margin-top: 25px;
     height: 65px;
@@ -32,7 +33,7 @@
     font-weight: 700;
 }
 .small-input {
-    width: 15vmin;
+    width: 30vmin;
     height: 50px;
 }
 
