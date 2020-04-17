@@ -45,8 +45,13 @@
           <span class="field-name">Nouveau type</span>
           <br>
           <select class="small-input">
-            <option value="int">int</option>
-            <option value="varchar">varchar</option>
+            <option value="select-type">select-type--</option>
+            <?php
+              $file_with_types=file("txt/activetypes.txt");
+              foreach ($file_with_types as $type) {
+                echo "<option>".$type."</option>";
+              }
+            ?>
           </select>
         </div>
         <?php include 'html/form-date.html';?>

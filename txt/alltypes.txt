@@ -1,0 +1,9 @@
+varchar
+char
+int
+tinyint
+double float
+date
+time
+datetime
+boolean
