@@ -1,15 +1,20 @@
 <?php
-    $yesornot=1;
-    $file_with_type=file("../txt/activetypes.txt");
-    $reponsenettoyer=trim($_POST['choixtype']);
-    foreach ($file_with_type as $type) {
-        $basenettoyer=trim($type);
-        if(strcmp($reponsenettoyer,$basenettoyer)==0){
-            $yesornot=0;
+    if(isset($_POST['choixtype'])){
+        $yesornot=1;
+        $file_with_type=file("../txt/activetypes.txt");
+        $reponsenettoyer=trim($_POST['choixtype']);
+        foreach ($file_with_type as $type) {
+            $basenettoyer=trim($type);
+            if(strcmp($reponsenettoyer,$basenettoyer)==0){
+                $yesornot=0;
+            }
+        }
+        if ($yesornot==0){
+            file_put_contents("../txt/activetypes.txt", str_replace($_POST['choixtype'], "", file_get_contents("../txt/activetypes.txt")));
+        }else{
+            file_put_contents("../txt/activetypes.txt",$_POST['choixtype']."\n",FILE_APPEND);
         }
     }
-    echo $yesornot;
-    
      
 ?>
 
@@ -44,10 +49,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Générer des données</a>
+            <li class="nav-item ">
+              <a class="nav-link" href="../index.php">Générer des données</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="#">Gestion modèles</a>
             </li>
           </ul>

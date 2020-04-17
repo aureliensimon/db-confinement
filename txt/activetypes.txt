@@ -1,8 +1,7 @@
-varchar
-char
-int
-tinyint
-double float
 date
-datetime
+time
+
+tinyint
 boolean
+datetime
+double float
