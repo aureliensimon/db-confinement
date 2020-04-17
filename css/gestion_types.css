@@ -1,0 +1,21 @@
+#active-list{
+    width: 30%;
+    margin-top: 5%;
+    margin-left: 10%;
+    background-color: var(--green);
+}
+
+.type_box{
+
+  color: white;  
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+#ajoutouretrait{
+    align-content: center;
+    margin-top: 10%;
+    margin-left: 10%;
+}
