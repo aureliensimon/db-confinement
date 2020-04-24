@@ -1,0 +1,19 @@
+#saisi_nom_modele{
+    width: 100%;
+
+    text-align: center;
+    letter-spacing: 3px;
+
+}
+
+#button-save{
+    text-transform: uppercase;
+}
+
+#choix_type{
+    text-align: center;
+}
+
+#tableau{
+    margin-left: 5%;
+}

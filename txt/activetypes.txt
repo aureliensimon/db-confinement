@@ -5,3 +5,7 @@ tinyint
 boolean
 datetime
 double float
+
+if($result['actif']){
+                echo "<option>".$result['type_champ']."</option>";
+            }
