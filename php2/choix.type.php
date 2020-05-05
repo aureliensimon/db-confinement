@@ -2,9 +2,12 @@
 
 session_start();
 require_once('database.php');
+include '../index2.php';
 
-if(isset($_POST['nom_modele'])){
+if(isset($_POST['nom_modele']) || strcmp($_POST['nom_modele'],'')!=0 ){
     $_SESSION['nom_modele']=htmlspecialchars($_POST['nom_modele']);
+}else{
+  include '../index2.html';
 }
 
 ?>

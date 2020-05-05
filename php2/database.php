@@ -36,10 +36,32 @@ function selecttruetype($db)
         catch (PDOException $exception)
         {
         error_log('Request error: '.$exception->getMessage());
-        echo "<option> problème </option>";
+        return false;
         }
     }
 
+function insert_nom_modele($db,$nom_modele)
+
+    
+    {
+      $timestamp = date("Y-m-d H:i:s");
+        try
+        {
+        $request = 'INSERT INTO modele (libelle,date_creation) VALUES (:nommodele,:timestamp)';
+        $statement = $db->prepare($request);
+        /*$statement->bindParam(':nommodele', $nom_modele, PDO::PARAM_STR);
+        $statement->bindParam(':timestamp', $timestamp, PDO::PARAM_STR);*/
+        $statement->execute(array(
+          'nommodele'=>$nom_modele,
+          'timestamp'=>$timestamp
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
 
 
 ?>

@@ -1,3 +1,7 @@
+
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +44,7 @@
       </nav>
 
     <div id="saisi_nom_modele">
-        <form method="POST" action="php2/choix.type.php">
+        <form method="POST" action="php2/verif1-2.php">
             <div class="menu-field">
                 <span class="field-name">Nom du modele</span>
                 <br>
