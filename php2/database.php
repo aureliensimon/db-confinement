@@ -64,4 +64,31 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
+    function insert_champ_date($db,$nom_modele,$nom_champ,$max,$min,$type)
+
+    
+    {
+        try
+        {
+        $request = 'INSERT INTO champ (nom_champ,val_min_date,val_max_date,type_champ,libelle) VALUES (:nomchamp,:valmin,:valmax,:typechamp,:nommodele)';
+        $statement = $db->prepare($request);
+        /*$statement->bindParam(':nommodele', $nom_modele, PDO::PARAM_STR);
+        $statement->bindParam(':timestamp', $timestamp, PDO::PARAM_STR);*/
+        $statement->execute(array(
+          'nomchamp'=>$nom_champ,
+          'valmin'=>$min,
+          'valmax'=>$max,
+          'typechamp'=>$type,
+          'nommodele'=>$nom_modele
+          
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
 ?>
