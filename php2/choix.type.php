@@ -2,13 +2,6 @@
 
 session_start();
 require_once('database.php');
-include '../index2.php';
-
-if(isset($_POST['nom_modele']) || strcmp($_POST['nom_modele'],'')!=0 ){
-    $_SESSION['nom_modele']=htmlspecialchars($_POST['nom_modele']);
-}else{
-  include '../index2.html';
-}
 
 ?>
 
@@ -26,6 +19,7 @@ if(isset($_POST['nom_modele']) || strcmp($_POST['nom_modele'],'')!=0 ){
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/index2.css">
+    <link rel="stylesheet" href="../css/choix.type.css">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
@@ -55,16 +49,19 @@ if(isset($_POST['nom_modele']) || strcmp($_POST['nom_modele'],'')!=0 ){
       </nav>
 
     <div id="choix_type">
-        <form method="POST" action="php2/choix.type.php">
+        <form method="POST" action="verif2-param.php">
         <div class="menu-field">
                 <span class="field-name">Choix du type à ajouter</span>
                 <br>
 
                 <select class="field-input" name="mon_beau_type" >
-                    <option> select type-- </option>
+                    <option value="0"> select type-- </option>
                         <?php selecttruetype(dbConnect()); ?>
 
                 </select>
+                <div>
+                  <button type=submit  class="menu-button" id="button-ajouter"> AJOUTER</button>
+                </div>
         </form>
     </div>
 

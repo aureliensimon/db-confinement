@@ -44,7 +44,7 @@ function insert_nom_modele($db,$nom_modele)
 
     
     {
-      $timestamp = date("Y-m-d H:i:s");
+      $timestamp = date('Y-m-d');
         try
         {
         $request = 'INSERT INTO modele (libelle,date_creation) VALUES (:nommodele,:timestamp)';
