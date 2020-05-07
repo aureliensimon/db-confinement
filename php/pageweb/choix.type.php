@@ -65,7 +65,7 @@ require_once('../bdd/database.php');
         </form>
     </div>
 
-    <div id="tableau"></div>
+    <div id="tableau">
           <div id="tableau-head" class="d-flex bd-highlight">
             <div  class="p-2  bd-highlight align-self-center suppr">SUPPR</div>
             <div  class="p-2  bd-highlight align-self-center nom">NOM</div>
@@ -74,7 +74,20 @@ require_once('../bdd/database.php');
             <div  class="p-2  bd-highlight align-self-center parametres">PARAMÈTRES</div>
           </div>
           <div id="tableau-lignes">
-            <div class="ligne d-flex bd-highlight" class="d-flex bd-highlight">
+            <div>
+            <div class="ligne d-flex bd-highlight" >
+              <div  class="p-2  bd-highlight align-self-center suppr">X</div>
+              <div  class="p-2  bd-highlight align-self-center nom">Age</div>
+              <div  class="p-2  bd-highlight align-self-center type">Entier</div>
+              <div  class="p-2  bd-highlight align-self-center taille">indéfini</div>
+              <div  class="p-2  bd-highlight align-self-center parametres">
+                <span>min:</span>
+                <span>50</span>
+                <span>max:</span>
+                <span>100</span>
+            </div>
+            </div>
+            <div class="ligne d-flex bd-highlight">
               <div  class="p-2  bd-highlight align-self-center suppr">X</div>
               <div  class="p-2  bd-highlight align-self-center nom">Age</div>
               <div  class="p-2  bd-highlight align-self-center type">Entier</div>

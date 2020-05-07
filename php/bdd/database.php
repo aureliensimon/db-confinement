@@ -265,6 +265,27 @@ function insert_nom_modele($db,$nom_modele)
 
 
 
+    function tableau($db,$nom_modele){
+      try
+      {
+      $request = 'SELECT  * FROM champ WHERE libelle=:nommodele';
+      $statement = $db->prepare($request);
+      $statement->execute(array(
+        'nommodele'=>$nom_modele
+      ));
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      print_r($result);
+      }
+      catch (PDOException $exception)
+      {
+      error_log('Request error: '.$exception->getMessage());
+      return false;
+      }
+
+    }
+
+
+
 
 
 ?>
