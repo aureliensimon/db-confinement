@@ -34,17 +34,17 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">Générer des données</a>
+              <a class="nav-link" href="index2.php">Générer des données</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="php/gestion_types.php">Gestion modèles</a>
+              <a class="nav-link" href="php/pageweb/gestion_types.php">Gestion modèles</a>
             </li>
           </ul>
         </div>
       </nav>
 
     <div id="saisi_nom_modele">
-        <form method="POST" action="php2/verif1-2.php">
+        <form method="POST" action="php/verif/verif1-2.php">
             <div class="menu-field">
                 <span class="field-name">Nom du modele</span>
                 <br>

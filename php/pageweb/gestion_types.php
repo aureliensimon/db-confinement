@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('database.php');
+    require_once('../bdd/database.php');
     if (return_type_condition(dbConnect(),$_POST['choixtype'])[0]['actif']){
         true_to_false(dbConnect(),$_POST['choixtype']);
     }else{
@@ -19,10 +19,10 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/gestion_types.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/gestion_types.css">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
@@ -42,10 +42,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
-              <a class="nav-link" href="../index.php">Générer des données</a>
+              <a class="nav-link" href="../../index2.php">Générer des données</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Gestion modèles</a>
+              <a class="nav-link" href="gestion_types.php">Gestion modèles</a>
             </li>
           </ul>
         </div>
@@ -86,14 +86,7 @@
                    
                 </form>
             </div>
-
-
-
-
-
         </div>
     </div>
-    
-
 </body>
 </html>

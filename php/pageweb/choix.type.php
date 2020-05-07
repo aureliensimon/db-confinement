@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once('database.php');
+require_once('../bdd/database.php');
 
 ?>
 
@@ -15,11 +15,11 @@ require_once('database.php');
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/index2.css">
-    <link rel="stylesheet" href="../css/choix.type.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/index2.css">
+    <link rel="stylesheet" href="../../css/choix.type.css">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
@@ -39,17 +39,17 @@ require_once('database.php');
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">Générer des données</a>
+              <a class="nav-link" href="../../index2.php">Générer des données</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="php/gestion_types.php">Gestion modèles</a>
+              <a class="nav-link" href="gestion_types.php">Gestion modèles</a>
             </li>
           </ul>
         </div>
       </nav>
 
     <div id="choix_type">
-        <form method="POST" action="verif2-param.php">
+        <form method="POST" action="../verif/verif2-param.php">
         <div class="menu-field">
                 <span class="field-name">Choix du type à ajouter</span>
                 <br>
