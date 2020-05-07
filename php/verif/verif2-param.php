@@ -12,28 +12,28 @@ $_SESSION['mon_beau_type']=htmlspecialchars($_POST['mon_beau_type']);
 
 switch ($_SESSION['mon_beau_type']) {
     case 'INT':
-        header("location:../../html/int.html");
+        header("location:../../html/int_tinyint_double-float.html");
         break;
     case 'TINYINT':
-        header("location:../../html/tinyint.html");
+        header("location:../../html/int_tinyint_double-float.html");
         break;
     case 'BOOLEAN':
-        header("location:../../html/boolean.html");
+        header("location:../../html/time_bool_char.html");
         break;
     case 'CHAR':
-        header("location:../../html/char.html");
+        header("location:../../html/time_bool_char.html");
         break;
     case 'DATE':
-        header("location:../../html/date.html");
+        header("location:../../html/date_datetime.html");
         break;
     case 'DATETIME':
-        header("location:../../html/datetime.html");
+        header("location:../../html/date_datetime.html");
         break;
-    case 'DOUBLEFLOAT':
-        header("location:../../html/doublefloat.html");
+    case 'DOUBLE FLOAT':
+        header("location:../../html/int_tinyint_double-float.html");
         break;
     case 'TIME':
-        header("location:../../html/time.html");
+        header("location:../../html/time_bool_char.html");
         break;
     case 'VARCHAR':
         header("location:../../html/varchar.html");

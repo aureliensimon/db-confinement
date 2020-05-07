@@ -130,6 +130,77 @@ function insert_nom_modele($db,$nom_modele)
         }
     }
 
+    function insert_champ_int_and_tiny($db,$nom_modele,$nom_champ,$max,$min,$type)
+
+    
+    {
+        try
+        {
+        $request = 'INSERT INTO champ (nom_champ,val_min_nb,val_max_nb,type_champ,libelle) VALUES (:nomchamp,:valmin,:valmax,:typechamp,:nommodele)';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'nomchamp'=>$nom_champ,
+          'valmin'=>$min,
+          'valmax'=>$max,
+          'typechamp'=>$type,
+          'nommodele'=>$nom_modele
+          
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
+    function insert_char_bool_time($db,$nom_modele,$nom_champ,$type)
+
+    
+    {
+        try
+        {
+        $request = 'INSERT INTO champ (nom_champ,type_champ,libelle) VALUES (:nomchamp,:typechamp,:nommodele)';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'nomchamp'=>$nom_champ,
+          'typechamp'=>$type,
+          'nommodele'=>$nom_modele
+          
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
+    function insert_varchar($db,$nom_modele,$nom_champ,$longueur,$type)
+
+    
+    {
+        try
+        {
+        $request = 'INSERT INTO champ (nom_champ,longueur,type_champ,libelle) VALUES (:nomchamp,:longueur,:typechamp,:nommodele)';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'nomchamp'=>$nom_champ,
+          'longueur'=>$longueur,
+          'typechamp'=>$type,
+          'nommodele'=>$nom_modele
+          
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
 
 
 
