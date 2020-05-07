@@ -264,6 +264,38 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
+    function dispayminmax($min,$max){
+      if(!isset($min)&&!isset($max)){
+       echo "<span> vous n'avez pas défini de limite </span>";
+      }else if (!isset($min)&&isset($max)){
+          echo      "<span>min:</span>";
+          echo      "<span> pas de limite </span>";
+          echo      "<span>  max:</span>";
+          echo      "<span>".$max."</span>";
+      }else if(isset($min)&&!isset($max)){
+          echo      "<span>min:</span>";
+          echo      "<span>".$min." </span>";
+          echo      "<span>  max:</span>";
+          echo      "<span>pas de limite </span>";
+      }else{
+          echo      "<span>min:</span>";
+          echo      "<span>".$min."</span>";
+          echo      "<span>  max:</span>";
+          echo      "<span>".$max."</span>";
+      }
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
 
     function tableau($db,$nom_modele){
       try
@@ -274,7 +306,43 @@ function insert_nom_modele($db,$nom_modele)
         'nommodele'=>$nom_modele
       ));
       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-      print_r($result);
+      foreach ($result as $idtype => $arraytype) {          
+          echo "<div>";
+          echo  "<div class=\"ligne d-flex bd-highlight\" >";
+          echo   "<div  class=\"p-2  bd-highlight align-self-center suppr\">X</div>";
+          echo   "<div  class=\"p-2  bd-highlight align-self-center nom\">".$arraytype['nom_champ']."</div>";
+          echo   "<div  class=\"p-2  bd-highlight align-self-center type\">".$arraytype['type_champ']."</div>";
+          if(isset($arraytype['longueur'])){
+              echo   "<div  class=\"p-2  bd-highlight align-self-center taille\">".$arraytype['longueur']."</div>";
+          }else{
+            echo   "<div  class=\"p-2  bd-highlight align-self-center taille\">NULL</div>";
+          }
+          echo   "<div  class=\"p-2  bd-highlight align-self-center parametres\">";
+
+          switch($arraytype['type_champ']){
+            case 'INT':
+              dispayminmax($arraytype['val_min_nb'],$arraytype['val_max_nb']);
+              break;
+            case 'TINYINT':
+              dispayminmax($arraytype['val_min_nb'],$arraytype['val_max_nb']);
+              break;
+            case 'DOUBLE FLOAT':
+              dispayminmax($arraytype['val_min_nb'],$arraytype['val_max_nb']);
+              break;
+            case 'DATE':
+              dispayminmax($arraytype['val_min_date'],$arraytype['val_max_date']);
+              break;
+            case 'DATETIME':
+              dispayminmax($arraytype['val_min_date'],$arraytype['val_max_date']);
+              break;
+  
+          }
+          
+           echo "</div>";
+           echo "</div>";
+        
+        
+      }
       }
       catch (PDOException $exception)
       {
@@ -283,6 +351,8 @@ function insert_nom_modele($db,$nom_modele)
       }
 
     }
+
+    
 
 
 
