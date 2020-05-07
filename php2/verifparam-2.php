@@ -19,7 +19,7 @@
             break;
         case 'DATE':
             $retour=insert_champ_date(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type']);
-            echo $retour;
+            
             break;
         case 'DATETIME':
             header("location:datetime.html");
@@ -35,5 +35,6 @@
             break;
             
     }
+    header("location:choix.type.php");
 
 ?>

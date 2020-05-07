@@ -40,6 +40,46 @@ function selecttruetype($db)
         }
     }
 
+    function displaytruetype($db)
+    {
+        try
+        {
+        $request = 'SELECT *  FROM type_champ';
+        $statement = $db->prepare($request);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as $type) {
+            if($type['actif']){
+              echo "<p class=\"type_box\">".$type['type_champ']."</p>";
+            }
+        }
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return false;
+        }
+    }
+
+    function selectalltype($db)
+    {
+        try
+        {
+        $request = 'SELECT *  FROM type_champ';
+        $statement = $db->prepare($request);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as $type) {
+              echo "<option value=\"".$type['type_champ']."\">".$type['type_champ']."</option>";   
+        }
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return false;
+        }
+    }
+
 function insert_nom_modele($db,$nom_modele)
 
     
@@ -89,6 +129,71 @@ function insert_nom_modele($db,$nom_modele)
         return $exception;
         }
     }
+
+
+
+
+    function true_to_false($db,$type)
+
+    
+    {
+        try
+        {
+        $request = 'UPDATE type_champ SET actif=0 WHERE type_champ=:type';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'type'=>$type
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
+    function false_to_true($db,$type)
+
+    
+    {
+        try
+        {
+        $request = 'UPDATE type_champ SET actif=1 WHERE type_champ=:type';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'type'=>$type
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
+    function return_type_condition($db,$type)
+    {
+        try
+        {
+        $request = 'SELECT actif  FROM type_champ WHERE type_champ=:type';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'type'=>$type
+        ));
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return false;
+        }
+    }
+
+
+
 
 
 ?>

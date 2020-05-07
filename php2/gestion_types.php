@@ -1,20 +1,12 @@
 <?php
-    if(isset($_POST['choixtype'])){
-        $yesornot=1;
-        $file_with_type=file("../txt/activetypes.txt");
-        $reponsenettoyer=trim($_POST['choixtype']);
-        foreach ($file_with_type as $type) {
-            $basenettoyer=trim($type);
-            if(strcmp($reponsenettoyer,$basenettoyer)==0){
-                $yesornot=0;
-            }
-        }
-        if ($yesornot==0){
-            file_put_contents("../txt/activetypes.txt", str_replace($_POST['choixtype'], "", file_get_contents("../txt/activetypes.txt")));
-        }else{
-            file_put_contents("../txt/activetypes.txt",$_POST['choixtype']."\n",FILE_APPEND);
-        }
+    session_start();
+    require_once('database.php');
+    if (return_type_condition(dbConnect(),$_POST['choixtype'])[0]['actif']){
+        true_to_false(dbConnect(),$_POST['choixtype']);
+    }else{
+        false_to_true(dbConnect(),$_POST['choixtype']);
     }
+    
      
 ?>
 
@@ -67,10 +59,7 @@
 
         <div id="active-list" class="p-2 bd-highlight">
         <?php
-              $file_with_types=file("../txt/activetypes.txt");
-              foreach ($file_with_types as $type) {
-                echo "<p class=\"type_box\">".$type."</p>";
-              }
+              displaytruetype(dbConnect());
               
         ?>
 
@@ -88,10 +77,7 @@
                     <select name="choixtype" class="small-input">
                         <option value="select-type">select-type--</option>
                         <?php
-                            $file_with_types=file("../txt/alltypes.txt");
-                            foreach ($file_with_types as $type) {
-                                echo "<option>".$type."</option>";
-                            }
+                            selectalltype(dbConnect());
                         ?>
                     </select>
                     <p>Si le type sélectionné est présent dans la liste ci-joint il en sera supprimé sinon ajouté</p>
