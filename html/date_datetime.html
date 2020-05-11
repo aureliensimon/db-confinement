@@ -40,8 +40,8 @@
         </div>
       </nav>
 
-      <div  class="ajout_param">
-        <form action="../php/verif/verifparam-2.php" method="POST">
+      <div  class="ajout_param" >
+        <form action="../php/verif/verifparam-2.php"  enctype="multipart/form-data" method="POST">
             <div class="menu-field">
             <span class="field-name">Nom du champs</span>
             <br>
@@ -57,6 +57,12 @@
             <br>
             <input  type="date" class="field-input" name="max">
             </div>
+            <div class="menu-field">
+            <span class="field-name">Insérez votre propre liste de valeur:</span>
+            <br>
+            <input  type="file" class="field-input" name="fichier">
+            </div>
+
 
             <div class="buttons">
             <button type="submit" class="menu-button" id="button-save">AJOUTER</button>

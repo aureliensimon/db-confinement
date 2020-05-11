@@ -335,7 +335,9 @@ function insert_nom_modele($db,$nom_modele)
             case 'DATETIME':
               dispayminmax($arraytype['val_min_date'],$arraytype['val_max_date']);
               break;
-  
+            default:
+              echo "<span> pas de paramètres</span>";
+              break;
           }
           
            echo "</div>";
@@ -350,6 +352,24 @@ function insert_nom_modele($db,$nom_modele)
       return false;
       }
 
+    }
+
+
+
+    function all_possible_insert ($fonction,$db,$nom_modele,$nom_champ,$max,$min,$type){
+      if(strcmp($min,'')==0 && strcmp($max,'')==0){
+        $return=$fonction($db,$nom_modele,$nom_champ,NULL,NULL,$type);
+      }
+      else if(strcmp($min,'')==0 || strcmp($max,'')==0){
+            if(strcmp($min,'')==0){
+              $return=$fonction($db,$nom_modele,$nom_champ,$max,NULL,$type);
+            }else if(strcmp($max,'')==0){
+              $return=$fonction($db,$nom_modele,$nom_champ,NULL,$min,$type);
+            }
+      }else{
+        $return=$fonction($db,$nom_modele,$nom_champ,$max,$min,$type);
+      }
+      return $return;
     }
 
     

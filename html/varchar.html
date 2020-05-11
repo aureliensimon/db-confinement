@@ -41,7 +41,7 @@
       </nav>
 
       <div  class="ajout_param">
-        <form action="../php/verif/verifparam-2.php" method="POST">
+        <form action="../php/verif/verifparam-2.php"  enctype="multipart/form-data" method="POST">
             <div class="menu-field">
             <span class="field-name">Nom du champs</span>
             <br>
@@ -51,6 +51,18 @@
             <span class="field-name">longueur</span>
             <br>
             <input type="text" class="field-input" name="longueur">
+            </div>
+            <div class="menu-field">
+              <span class="field-name">Insérez votre propre liste de valeur:</span>
+              <br>
+              <input  type="file" class="field-input" name="fichier">
+            </div>
+            <div class="menu-field">
+              <span class="field-name">Choisissez une liste de mot:</span>
+              <br>
+              <select class="field-input" name="liste">
+                <option value="0">Select liste --</option>
+              </select>
             </div>
             
 
