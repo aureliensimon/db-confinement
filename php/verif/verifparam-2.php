@@ -1,6 +1,28 @@
 <?php
     session_start();
     require_once('../bdd/database.php');
+
+
+
+    //stockage ou non du fichier
+    if(isset($_FILES['fichier'])){
+        $dossier = '../../userfile/';
+        $fichier = basename($_FILES['fichier']['name']);
+        if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+        {
+              echo 'Upload effectué avec succès !';
+        }
+        else //Sinon (la fonction renvoie FALSE).
+        {
+              echo 'Echec de l\'upload !';
+         }
+    }
+
+
+
+
+
+
     if(strcmp($_POST['nom_champ'],'')==0 ||!isset($_POST['nom_champ'])){
         header("location:".  $_SERVER['HTTP_REFERER']); // revient sur la page précedente
     }else{
@@ -41,7 +63,7 @@
                 break;
                 
         }
-        header("location:../pageweb/choix.type.php");
+        //header("location:../pageweb/choix.type.php");
     }
 
 ?>
