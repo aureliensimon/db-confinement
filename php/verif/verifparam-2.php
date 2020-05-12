@@ -63,7 +63,7 @@
                 break;
                 
         }
-        //header("location:../pageweb/choix.type.php");
+        header("location:../pageweb/choix.type.php");
     }
 
 ?>
