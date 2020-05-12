@@ -41,10 +41,11 @@
                 insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],NULL);
                 break;
             case 'CHAR':
+                echo isset($_FILES['fichier']['name']);
                 if(isset($_FILES['fichier']['name'])){
-                    insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
+                   echo  insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
                 }else{
-                    insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],NULL);
+                    echo insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],NULL);
                 }
                 break;
             case 'DATE':
@@ -57,6 +58,7 @@
                 all_possible_insert('insert_champ_int_and_tiny',dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
                 break;
             case 'TIME':
+
                 if(isset($_FILES['fichier']['name'])){
                     insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
                 }else{
@@ -64,11 +66,7 @@
                 }
                 break;
             case 'VARCHAR':
-                if(strcmp($_POST['longueur'],'')==0){
-                    insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],NULL,$_SESSION['mon_beau_type']);
-                }else{
-                    insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['longueur'],$_SESSION['mon_beau_type']);
-                }
+                
                 if(isset($_FILES['fichier']['name'])){
                     if(strcmp($_POST['longueur'],'')==0){
                         insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],NULL,$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
@@ -85,7 +83,7 @@
                 break;
                 
         }
-        //header("location:../pageweb/choix.type.php");
+        header("location:../pageweb/choix.type.php");
     }
 
 ?>
