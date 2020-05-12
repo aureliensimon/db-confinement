@@ -72,6 +72,7 @@ require_once('../bdd/database.php');
             <div  class="p-2  bd-highlight align-self-center type">TYPE</div>
             <div  class="p-2  bd-highlight align-self-center taille">TAILLE</div>
             <div  class="p-2  bd-highlight align-self-center parametres">PARAMÈTRES</div>
+            <div  class="p-2  bd-highlight align-self-center fichier">FICHIER</div>
           </div>
           <div id="tableau-lignes">
              <?php tableau(dbConnect(),$_SESSION['nom_modele']);?>

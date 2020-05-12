@@ -346,6 +346,12 @@ function insert_nom_modele($db,$nom_modele)
           }
           
            echo "</div>";
+          if(isset($arraytype['fichier'])){
+            echo   "<div  class=\"p-2  bd-highlight align-self-center fichier\">".$arraytype['fichier']."</div>";
+          }else{
+            echo   "<div  class=\"p-2  bd-highlight align-self-center fichier\">NULL</div>";
+          }
+           
            echo "</div>";
         
         

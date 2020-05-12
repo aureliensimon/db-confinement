@@ -127,13 +127,18 @@
 }
 
 .parametres{
-    width: 40%;
+    width: 20%;
     border: solid 1px var(--purple) ;
 
 }
 
 .type{
     width: 15%;
+    border: solid 1px var(--purple) ;
+
+}
+.fichier{
+    width: 20%;
     border: solid 1px var(--purple) ;
 
 }
