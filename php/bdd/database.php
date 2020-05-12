@@ -104,13 +104,13 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
-    function insert_champ_date($db,$nom_modele,$nom_champ,$max,$min,$type)
+    function insert_champ_date($db,$nom_modele,$nom_champ,$max,$min,$type,$fichier)
 
     
     {
         try
         {
-        $request = 'INSERT INTO champ (nom_champ,val_min_date,val_max_date,type_champ,libelle) VALUES (:nomchamp,:valmin,:valmax,:typechamp,:nommodele)';
+        $request = 'INSERT INTO champ (nom_champ,val_min_date,val_max_date,type_champ,libelle,fichier) VALUES (:nomchamp,:valmin,:valmax,:typechamp,:nommodele,:fichier)';
         $statement = $db->prepare($request);
         /*$statement->bindParam(':nommodele', $nom_modele, PDO::PARAM_STR);
         $statement->bindParam(':timestamp', $timestamp, PDO::PARAM_STR);*/
@@ -119,7 +119,8 @@ function insert_nom_modele($db,$nom_modele)
           'valmin'=>$min,
           'valmax'=>$max,
           'typechamp'=>$type,
-          'nommodele'=>$nom_modele
+          'nommodele'=>$nom_modele,
+          'fichier'=>$fichier
           
         ));
         }
@@ -130,20 +131,21 @@ function insert_nom_modele($db,$nom_modele)
         }
     }
 
-    function insert_champ_int_and_tiny($db,$nom_modele,$nom_champ,$max,$min,$type)
+    function insert_champ_int_and_tiny($db,$nom_modele,$nom_champ,$max,$min,$type,$fichier)
 
     
     {
         try
         {
-        $request = 'INSERT INTO champ (nom_champ,val_min_nb,val_max_nb,type_champ,libelle) VALUES (:nomchamp,:valmin,:valmax,:typechamp,:nommodele)';
+        $request = 'INSERT INTO champ (nom_champ,val_min_nb,val_max_nb,type_champ,libelle,fichier) VALUES (:nomchamp,:valmin,:valmax,:typechamp,:nommodele,:fichier)';
         $statement = $db->prepare($request);
         $statement->execute(array(
           'nomchamp'=>$nom_champ,
           'valmin'=>$min,
           'valmax'=>$max,
           'typechamp'=>$type,
-          'nommodele'=>$nom_modele
+          'nommodele'=>$nom_modele,
+          'fichier'=>$fichier
           
         ));
         }
@@ -155,18 +157,20 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
-    function insert_char_bool_time($db,$nom_modele,$nom_champ,$type)
+    function insert_char_bool_time($db,$nom_modele,$nom_champ,$type,$fichier)
 
     
     {
         try
         {
-        $request = 'INSERT INTO champ (nom_champ,type_champ,libelle) VALUES (:nomchamp,:typechamp,:nommodele)';
+        $request = 'INSERT INTO champ (nom_champ,type_champ,libelle,fichier) VALUES (:nomchamp,:typechamp,:nommodele,:fichier)';
         $statement = $db->prepare($request);
         $statement->execute(array(
           'nomchamp'=>$nom_champ,
           'typechamp'=>$type,
-          'nommodele'=>$nom_modele
+          'nommodele'=>$nom_modele,
+          'fichier'=>$fichier
+
           
         ));
         }
@@ -178,19 +182,20 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
-    function insert_varchar($db,$nom_modele,$nom_champ,$longueur,$type)
+    function insert_varchar($db,$nom_modele,$nom_champ,$longueur,$type,$fichier)
 
     
     {
         try
         {
-        $request = 'INSERT INTO champ (nom_champ,longueur,type_champ,libelle) VALUES (:nomchamp,:longueur,:typechamp,:nommodele)';
+        $request = 'INSERT INTO champ (nom_champ,longueur,type_champ,libelle,fichier) VALUES (:nomchamp,:longueur,:typechamp,:nommodele,:fichier)';
         $statement = $db->prepare($request);
         $statement->execute(array(
           'nomchamp'=>$nom_champ,
           'longueur'=>$longueur,
           'typechamp'=>$type,
-          'nommodele'=>$nom_modele
+          'nommodele'=>$nom_modele,
+          'fichier'=>$fichier
           
         ));
         }
@@ -356,20 +361,38 @@ function insert_nom_modele($db,$nom_modele)
 
 
 
-    function all_possible_insert ($fonction,$db,$nom_modele,$nom_champ,$max,$min,$type){
-      if(strcmp($min,'')==0 && strcmp($max,'')==0){
-        $return=$fonction($db,$nom_modele,$nom_champ,NULL,NULL,$type);
-      }
-      else if(strcmp($min,'')==0 || strcmp($max,'')==0){
-            if(strcmp($min,'')==0){
-              $return=$fonction($db,$nom_modele,$nom_champ,$max,NULL,$type);
-            }else if(strcmp($max,'')==0){
-              $return=$fonction($db,$nom_modele,$nom_champ,NULL,$min,$type);
-            }
+    function all_possible_insert ($fonction,$db,$nom_modele,$nom_champ,$max,$min,$type,$fichier){
+      if(isset($fichier)){
+        if(strcmp($min,'')==0 && strcmp($max,'')==0){
+          $return=$fonction($db,$nom_modele,$nom_champ,NULL,NULL,$type,$fichier);
+        }
+        else if(strcmp($min,'')==0 || strcmp($max,'')==0){
+              if(strcmp($min,'')==0){
+                $return=$fonction($db,$nom_modele,$nom_champ,$max,NULL,$type,$fichier);
+              }else if(strcmp($max,'')==0){
+                $return=$fonction($db,$nom_modele,$nom_champ,NULL,$min,$type,$fichier);
+              }
+        }else{
+          $return=$fonction($db,$nom_modele,$nom_champ,$max,$min,$type,$fichier);
+        }
+        return $return;
       }else{
-        $return=$fonction($db,$nom_modele,$nom_champ,$max,$min,$type);
+
+        if(strcmp($min,'')==0 && strcmp($max,'')==0){
+          $return=$fonction($db,$nom_modele,$nom_champ,NULL,NULL,$type,NULL);
+        }
+        else if(strcmp($min,'')==0 || strcmp($max,'')==0){
+              if(strcmp($min,'')==0){
+                $return=$fonction($db,$nom_modele,$nom_champ,$max,NULL,$type,NULL);
+              }else if(strcmp($max,'')==0){
+                $return=$fonction($db,$nom_modele,$nom_champ,NULL,$min,$type,NULL);
+              }
+        }else{
+          $return=$fonction($db,$nom_modele,$nom_champ,$max,$min,$type,NULL);
+        }
+        return $return;
+
       }
-      return $return;
     }
 
     
