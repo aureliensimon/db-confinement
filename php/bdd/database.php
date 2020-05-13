@@ -182,20 +182,21 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
-    function insert_varchar($db,$nom_modele,$nom_champ,$longueur,$type,$fichier)
+    function insert_varchar($db,$nom_modele,$nom_champ,$longueur,$type,$fichier,$liste)
 
     
     {
         try
         {
-        $request = 'INSERT INTO champ (nom_champ,longueur,type_champ,libelle,fichier) VALUES (:nomchamp,:longueur,:typechamp,:nommodele,:fichier)';
+        $request = 'INSERT INTO champ (nom_champ,longueur,type_champ,libelle,fichier,liste_txt) VALUES (:nomchamp,:longueur,:typechamp,:nommodele,:fichier,:liste)';
         $statement = $db->prepare($request);
         $statement->execute(array(
           'nomchamp'=>$nom_champ,
           'longueur'=>$longueur,
           'typechamp'=>$type,
           'nommodele'=>$nom_modele,
-          'fichier'=>$fichier
+          'fichier'=>$fichier,
+          'liste'=>$liste
           
         ));
         }

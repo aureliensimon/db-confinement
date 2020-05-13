@@ -44,7 +44,12 @@
         $longueur=htmlspecialchars($_POST['longueur']);
     }
 
-    echo $min.$max.$fichier;
+    if($_POST['liste']==0){
+        $liste=NULL;
+    }else{
+        $liste=$_POST['liste'];
+    }
+    
 
 
 
@@ -85,7 +90,7 @@
                 insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'VARCHAR':
-                insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$longueur,$_SESSION['mon_beau_type'],$fichier);
+                insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$longueur,$_SESSION['mon_beau_type'],$fichier,$liste);
                 break;
                 
         }
