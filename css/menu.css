@@ -173,3 +173,13 @@
     height: 100%;
     text-align: center;
 }
+
+
+#erreur{
+    display: block;
+    width: 100%;
+    background-color: var(--red);
+    color: white;
+    text-align: center;
+    align-content: center;
+}

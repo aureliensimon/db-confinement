@@ -1,6 +1,8 @@
 
-<?php
+<?php 
 session_start();
+echo $_SESSION['erreur'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

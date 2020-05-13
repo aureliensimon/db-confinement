@@ -2,6 +2,9 @@
 
 session_start();
 require_once('../bdd/database.php');
+if($_SESSION['nom_modele']==NULL){
+  header("location:../../index2.php");
+}
 
 ?>
 

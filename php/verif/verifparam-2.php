@@ -3,6 +3,7 @@
     require_once('../bdd/database.php');
 
     echo $_FILES['fichier']['name'];
+    $_SESSION['erreur']=NULL;
 
     //stockage ou non du fichier
     if(isset($_FILES['fichier']['name'])){
@@ -60,6 +61,7 @@
 
 
     if(strcmp($_POST['nom_champ'],'')==0 ||!isset($_POST['nom_champ'])){
+        $_SESSION['erreur']=displayerreur ("il manque un nom de champ");
         header("location:".  $_SERVER['HTTP_REFERER']); // revient sur la page précedente
     }else{
         switch ($_SESSION['mon_beau_type']) {
@@ -67,9 +69,6 @@
                echo insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'TINYINT':
-                if($_POST['max']>127 || $_POST['min']<(-128)){
-                    header("location:".  $_SERVER['HTTP_REFERER']); 
-                }
                 insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'BOOLEAN':
@@ -84,7 +83,7 @@
             case 'DATETIME':
                 insert_champ_date(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
-            case 'DOUBLEFLOAT':
+            case 'DOUBLE FLOAT':
                 insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'TIME':

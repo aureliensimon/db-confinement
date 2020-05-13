@@ -1,3 +1,11 @@
+<?php 
+session_start();
+echo $_SESSION['erreur'];
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +15,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/index2.css">
-    <link rel="stylesheet" href="../css/choix.type.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/index2.css">
+    <link rel="stylesheet" href="../../css/choix.type.css">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
@@ -22,6 +30,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+    
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">DB CONFINEMENT<span>.</span></a>
@@ -41,7 +50,7 @@
       </nav>
 
       <div  class="ajout_param" >
-        <form action="../php/verif/verifparam-2.php"  enctype="multipart/form-data" method="POST">
+        <form action="../verif/verifparam-2.php"  enctype="multipart/form-data" method="POST">
             <div class="menu-field">
             <span class="field-name">Nom du champs</span>
             <br>

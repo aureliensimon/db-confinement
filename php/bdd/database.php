@@ -370,7 +370,9 @@ function insert_nom_modele($db,$nom_modele)
 
 
 
-    
+    function displayerreur ($message){
+      return "<div id=\"erreur\"> <span>".$message."</span> </div>";
+    }
     
 
 
