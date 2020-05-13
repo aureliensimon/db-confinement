@@ -110,8 +110,16 @@
 
 .suppr{
     width: 10%;
+    height: 42px;
     border: solid 1px var(--purple) ;
 
+}
+.suppr button{
+    height: 100%;
+    width: 100%;
+    color:var(--red);
+    background-color: white;
+    border: none;
 }
 
 .nom{

@@ -270,6 +270,26 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
+    function dropchamp($db,$id)
+
+    
+    {
+        try
+        {
+        $request = 'DELETE FROM champ WHERE id=:id';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'id'=>$id
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
     function dispayminmax($min,$max){
       if(!isset($min)&&!isset($max)){
        echo "<span> vous n'avez pas défini de limite </span>";
@@ -313,9 +333,12 @@ function insert_nom_modele($db,$nom_modele)
       ));
       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
       foreach ($result as $idtype => $arraytype) {          
-          echo "<div>";
-          echo  "<div class=\"ligne d-flex bd-highlight\" >";
-          echo   "<div  class=\"p-2  bd-highlight align-self-center suppr\">X</div>";
+          echo   "<div>";
+          echo   "<div class=\"ligne d-flex bd-highlight\" >";
+          echo   "<form class =\"p-2  bd-highlight align-self-center suppr\" method=\"POST\" action=\"../verif/dropchamp.php\">";
+          echo   "<input type=\"hidden\"  name=\"id\" value=\"".$arraytype['id']."\">";
+          echo   "<button type=\"submit\">SUPPRIMER</button> ";
+          echo   "</form>";
           echo   "<div  class=\"p-2  bd-highlight align-self-center nom\">".$arraytype['nom_champ']."</div>";
           echo   "<div  class=\"p-2  bd-highlight align-self-center type\">".$arraytype['type_champ']."</div>";
           if(isset($arraytype['longueur'])){
