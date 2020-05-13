@@ -20,6 +20,35 @@
 
 
 
+    if(strcmp($_POST['max'],'')==0){
+        $max=NULL;
+    }else{
+        $max=htmlspecialchars($_POST['max']);
+    }
+
+    if(strcmp($_POST['min'],'')==0){
+        $min=NULL;
+    }else{
+        $min=htmlspecialchars($_POST['min']);
+    }
+    
+    if(isset($_FILES['fichier']['name'])){
+        $fichier=$_FILES['fichier']['name'];
+    }else{
+        $fichier=NULL;
+    }
+
+    if(strcmp($_POST['longueur'],'')==0){
+        $longueur=NULL;
+    }else{
+        $longueur=htmlspecialchars($_POST['longueur']);
+    }
+
+    echo $min.$max.$fichier;
+
+
+
+
 
 
 
@@ -29,57 +58,34 @@
     }else{
         switch ($_SESSION['mon_beau_type']) {
             case 'INT';
-                all_possible_insert('insert_champ_int_and_tiny',dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
+               echo insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'TINYINT':
                 if($_POST['max']>127 || $_POST['min']<(-128)){
                     header("location:".  $_SERVER['HTTP_REFERER']); 
                 }
-                all_possible_insert('insert_champ_int_and_tiny',dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
+                insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'BOOLEAN':
                 insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],NULL);
                 break;
             case 'CHAR':
-                echo isset($_FILES['fichier']['name']);
-                if(isset($_FILES['fichier']['name'])){
-                   echo  insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
-                }else{
-                    echo insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],NULL);
-                }
+                 echo  insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'DATE':
-                all_possible_insert('insert_champ_date',dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
+                insert_champ_date(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'DATETIME':
-                all_possible_insert('insert_champ_date',dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
+                insert_champ_date(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'DOUBLEFLOAT':
-                all_possible_insert('insert_champ_int_and_tiny',dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['max'],$_POST['min'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
+                insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'TIME':
-
-                if(isset($_FILES['fichier']['name'])){
-                    insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
-                }else{
-                    insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],NULL);
-                }
+                insert_char_bool_time(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'VARCHAR':
-                
-                if(isset($_FILES['fichier']['name'])){
-                    if(strcmp($_POST['longueur'],'')==0){
-                        insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],NULL,$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
-                    }else{
-                        insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['longueur'],$_SESSION['mon_beau_type'],$_FILES['fichier']['name']);
-                    }
-                }else{
-                    if(strcmp($_POST['longueur'],'')==0){
-                        insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],NULL,$_SESSION['mon_beau_type'],NULL);
-                    }else{
-                        insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$_POST['longueur'],$_SESSION['mon_beau_type'],NULL);
-                    }
-                }
+                insert_varchar(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$longueur,$_SESSION['mon_beau_type'],$fichier);
                 break;
                 
         }

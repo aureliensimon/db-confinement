@@ -367,40 +367,7 @@ function insert_nom_modele($db,$nom_modele)
 
 
 
-    function all_possible_insert ($fonction,$db,$nom_modele,$nom_champ,$max,$min,$type,$fichier){
-      if(isset($fichier)){
-        if(strcmp($min,'')==0 && strcmp($max,'')==0){
-          $return=$fonction($db,$nom_modele,$nom_champ,NULL,NULL,$type,$fichier);
-        }
-        else if(strcmp($min,'')==0 || strcmp($max,'')==0){
-              if(strcmp($min,'')==0){
-                $return=$fonction($db,$nom_modele,$nom_champ,$max,NULL,$type,$fichier);
-              }else if(strcmp($max,'')==0){
-                $return=$fonction($db,$nom_modele,$nom_champ,NULL,$min,$type,$fichier);
-              }
-        }else{
-          $return=$fonction($db,$nom_modele,$nom_champ,$max,$min,$type,$fichier);
-        }
-        return $return;
-      }else{
-
-        if(strcmp($min,'')==0 && strcmp($max,'')==0){
-          $return=$fonction($db,$nom_modele,$nom_champ,NULL,NULL,$type,NULL);
-        }
-        else if(strcmp($min,'')==0 || strcmp($max,'')==0){
-              if(strcmp($min,'')==0){
-                $return=$fonction($db,$nom_modele,$nom_champ,$max,NULL,$type,NULL);
-              }else if(strcmp($max,'')==0){
-                $return=$fonction($db,$nom_modele,$nom_champ,NULL,$min,$type,NULL);
-              }
-        }else{
-          $return=$fonction($db,$nom_modele,$nom_champ,$max,$min,$type,NULL);
-        }
-        return $return;
-
-      }
-    }
-
+    
     
 
 
