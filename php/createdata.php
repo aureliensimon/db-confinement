@@ -11,21 +11,48 @@ function usechar(){
 }
 
 
-function genererDate($min,$max){
-    $start=strtotime($min);
-    $end=strtotime($max);
-    $timestamp = mt_rand($start, $end);
-    $randomDate = date("Y-m-d", $timestamp);
+
+function useheure(){
+    $timestamp = mt_rand(1, time());
+    $randomDate = date("H:i:s", $timestamp);
     return $randomDate;
 }
 
-function usedatetime(){
-    $format = 'Y-m-d';
-    $date = DateTime::createFromFormat("Y-m-d", usedate());
+
+
+
+
+
+
+function genererDate($min,$max){
+    $start=strtotime($min);
+    $end=strtotime($max);
+    if ($start==NULL){
+        $start=0;
+    }
+    if ($end==NULL){
+        $end=time();
+    }    
+    $timestamp = mt_rand($start, $end);
+    $randomDate = date("Y-m-d", $timestamp);
+    return $randomDate;
+    
+}
+
+
+
+
+function usedatetime($min,$max){
+    $format = 'Y-m-d H:i:s';
+    $heureetdate=genererDate($min,$max)." ".useheure();
+    
+   $date = DateTime::createFromFormat($format, $heureetdate);
     return $date->format('Y-m-d H:i:s');
 } 
 
-//echo usedatetime();
+
+
+
 
 
 
