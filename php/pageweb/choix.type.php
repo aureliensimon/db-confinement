@@ -33,6 +33,7 @@ if($_SESSION['nom_modele']==NULL){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php echo $_SESSION['erreur']; ?>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">DB CONFINEMENT<span>.</span></a>
@@ -80,6 +81,48 @@ if($_SESSION['nom_modele']==NULL){
           <div id="tableau-lignes">
              <?php tableau(dbConnect(),$_SESSION['nom_modele']);?>
           </div>
+    </div>
+
+    <div id="formfichier" class="d-flex bd-highlight">
+      <div id="csv" class="p-2  bd-highlight align-self-center"> 
+      <form action=""   method="POST">
+            <div class="menu-field">
+            <span class="field-name">Nom du fichier:</span>
+            <br>
+            <input type="text" class="field-input" name="nom_champ">
+            </div>
+            <div class="menu-field">
+            <span class="field-name">Nombre de ligne:</span>
+            <br>
+            <input  type="text" class="field-input" name="max">
+            </div>
+            <div class="buttons">
+            <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .CSV</button>
+            </div>
+        </form>
+      </div>
+      <div id="sql" class="p-2  bd-highlight align-self-center"> 
+      <form action=""   method="POST">
+            <div class="menu-field">
+            <span class="field-name">Nom du fichier:</span>
+            <br>
+            <input type="text" class="field-input" name="nom_champ">
+            </div>
+            <div class="menu-field">
+            <span class="field-name">Nom de la table:</span>
+            <br>
+            <input type="text" class="field-input" name="min">
+            </div>
+            <div class="menu-field">
+            <span class="field-name">Nombre de ligne:</span>
+            <br>
+            <input  type="text" class="field-input" name="max">
+            </div>
+            <div class="buttons">
+            <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .SQL</button>
+            </div>
+        </form>
+      </div>
     </div>
 
 </body>

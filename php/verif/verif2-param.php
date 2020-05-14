@@ -1,9 +1,11 @@
 <?php
 
 session_start();
+$_SESSION['erreur']=NULL;
 
 require_once('../bdd/database.php');
-if($_POST['mon_beau_type']==0 ){
+if(strcmp($_POST['mon_beau_type'],"0")==0 ){
+  $_SESSION['erreur']=displayerreur ("Aucun type sélectionné");
   header("location:../pageweb/choix.type.php");
 }
 $_SESSION['mon_beau_type']=htmlspecialchars($_POST['mon_beau_type']);

@@ -382,10 +382,12 @@ function insert_nom_modele($db,$nom_modele)
         
         
       }
+      
       }
       catch (PDOException $exception)
       {
       error_log('Request error: '.$exception->getMessage());
+      
       return false;
       }
 

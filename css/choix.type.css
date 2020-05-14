@@ -3,3 +3,12 @@
     margin-top: 2%;
 }
 
+#formfichier{
+    width: 100%;
+}
+
+#csv, #sql{
+    width: 50%;
+}
+
+
