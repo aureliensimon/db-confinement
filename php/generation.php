@@ -1,30 +1,6 @@
 <?php
-  /*
-  CREATE TABLE `champ` (
-    `id` int(11) NOT NULL,
-    `nom_champ` varchar(50) NOT NULL,
-    `longueur` double DEFAULT NULL,
-    `val_min_nb` double DEFAULT NULL,
-    `val_max_nb` double DEFAULT NULL,
-    `val_min_date` date DEFAULT NULL,
-    `val_max_date` date DEFAULT NULL,
-    `liste_txt` varchar(1024) DEFAULT NULL,
-    `fichier` varchar(1024) DEFAULT NULL,
-    `libelle` varchar(50) NOT NULL,
-    `type_champ` varchar(1024) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-  --
-  -- Contenu de la table `champ`
-  --
-
-  INSERT INTO `champ` (`id`, `nom_champ`, `longueur`, `val_min_nb`, `val_max_nb`, `val_min_date`, `val_max_date`, `liste_txt`, `fichier`, `libelle`, `type_champ`) VALUES
-  (1, 'merci', NULL, NULL, NULL, '2020-05-13', '2020-05-31', NULL, NULL, 'test', 'DATETIME'),
-  (2, 'azert', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test', 'INT'),
-  (3, 'testtableau', NULL, NULL, NULL, '2020-05-13', NULL, NULL, NULL, 'test', 'DATE'),
-  (4, 'wxcv', NULL, NULL, 240, NULL, NULL, NULL, NULL, 'test', 'TINYINT');
-  */
   require_once('bdd/database.php');
+  require_once('createdata.php');
   session_start();
 
   function t ($db,$nom_modele) {
@@ -60,18 +36,29 @@
   fwrite($file, ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n\n");
 
   fwrite($file, "INSERT INTO `" . $nomTable . "` (");
+  $lineRandomData = array();
   foreach($tab as &$e) {
+    array_push($lineRandomData, $e['nom_champ']);
     fwrite($file, "`" . $e['nom_champ'] . "`, ");
   }
   fwrite($file, ") VALUES\n");
 
-  print_r(array_keys($tab[0]));
   foreach($tab as &$e) {
+    $randomData;
     switch ($e['type_champ']) {
       case 'DATE':
-          genererDate($e['val_min_date'], $e['val_max_date'], $e['fichier']);
-          break;
+        $randomData = genererDate($e['val_min_date'], $e['val_max_date']);
+        break;
+      default:
+        $randomData = 'a';
     }
+    $lineRandomData[$e['nom_champ']] = $randomData;  
+  }
+
+  // AFFICHE AUSSI 3 ENTETE INUTILES
+  print_r(array_keys($lineRandomData));
+  foreach(array_keys($lineRandomData) as &$k) {
+    print_r($lineRandomData[$k] . "\n");
   }
 
   fclose($file);

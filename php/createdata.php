@@ -19,8 +19,6 @@ function genererDate($min,$max){
     return $randomDate;
 }
 
-echo usedateminetmax(NULL,"1980-05-17");
-
 function usedatetime(){
     $format = 'Y-m-d';
     $date = DateTime::createFromFormat("Y-m-d", usedate());
