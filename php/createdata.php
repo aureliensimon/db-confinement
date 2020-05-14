@@ -24,6 +24,9 @@ function useheure(){
 
 
 
+
+
+
 function genererDate($min,$max){
     $start=strtotime($min);
     $end=strtotime($max);
@@ -42,6 +45,8 @@ function genererDate($min,$max){
 
 
 
+
+
 function usedatetime($min,$max){
     $format = 'Y-m-d H:i:s';
     $heureetdate=genererDate($min,$max)." ".useheure();
@@ -49,6 +54,56 @@ function usedatetime($min,$max){
    $date = DateTime::createFromFormat($format, $heureetdate);
     return $date->format('Y-m-d H:i:s');
 } 
+
+
+function usedouble($min,$max){
+    if(!isset($min)){
+        $min=PHP_INT_MIN;
+    }
+    if (!isset($max)){
+        $max=PHP_INT_MAX;
+    }
+    $result=random_int(PHP_INT_MIN,PHP_INT_MAX)/random_int(PHP_INT_MIN,PHP_INT_MAX);
+    if($min>$result || $result >$max){
+        $result=usedouble($min,$max);
+    }
+    return $result;
+
+}
+
+
+function useint($min,$max){
+    if(!isset($min)){
+        $min=PHP_INT_MIN;
+    }
+    if (!isset($max)){
+        $max=PHP_INT_MAX;
+    }
+    return random_int($min,$max);
+}
+
+
+function usetiny($min,$max){
+    if(!isset($min) || $min<-128){
+        $min=-128;
+    }
+    if (!isset($max)|| $max>127){
+        $max=127;
+    }
+    return random_int($min,$max);
+}
+
+
+function usevarchar($longueur){
+    $randomtext="";
+    $taille=useint(1,$longueur);
+    for ($i=0; $i < $taille; $i++) { 
+        $randomtext=$randomtext.usechar();
+    }
+    return $randomtext;
+}
+
+
 
 
 
