@@ -87,4 +87,19 @@ function usevarchar($longueur){
     return $randomtext;
 }
 
+function usefile ($fichier,$nbligne){
+    $fichier=file("test.txt");
+    $taillefichier= sizeof($fichier);
+    $tablignerand=array();
+    for ($i=0; $i <$nbligne ; $i++) { 
+        array_push($tablignerand,useint(0,$taillefichier-1));
+    }
+    $finaldatafile=array();
+
+    for ($i=0; $i <$nbligne ; $i++) { 
+        array_push($finaldatafile,$fichier[$tablignerand[$i]]);
+    }
+    return $finaldatafile;
+}
+
 ?>
