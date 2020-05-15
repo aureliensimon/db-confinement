@@ -18,6 +18,39 @@
     }
   }
 
+  function getRandomData ($type) {
+    $randomData;
+      switch ($e['type_champ']) {
+        case 'DATE':
+          $randomData = useDate($e['val_min_date'], $e['val_max_date']);
+          break;
+        case 'BOOLEAN':
+          $randomData = useboolean();
+          break;
+        case 'CHAR':
+          $randomData = usechar();
+          break;
+        case 'DATETIME':
+          $randomData = usedatetime($e['val_min_date'], $e['val_max_date']);
+          break;
+        case 'INT':
+          $randomData = useint($e['val_min_nb'], $e['val_max_nb']);
+          break;
+        case 'TINYINT':
+          $randomData = usetiny($e['val_min_nb'], $e['val_max_nb']);
+          break;
+        case 'DOUBLE':
+          $randomData = usedouble($e['val_min_nb'], $e['val_max_nb']);
+          break;
+        case 'VARCHAR':
+          $randomData = usevarchar($e['longueur']);
+          break;
+        default:
+          $randomData = 'mauvais type';
+      }
+    return $randomData;
+  }
+
   $nomTable = $_POST['nom_table_sql'];
   $nombreLignes = $_POST['max'];
 
@@ -48,36 +81,7 @@
   
   for($ligne = 0; $ligne < $nombreLignes; $ligne++) {
     foreach($tab as &$e) {
-      $randomData;
-      switch ($e['type_champ']) {
-        case 'DATE':
-          $randomData = useDate($e['val_min_date'], $e['val_max_date']);
-          break;
-        case 'BOOLEAN':
-          $randomData = useboolean();
-          break;
-        case 'CHAR':
-          $randomData = usechar();
-          break;
-        case 'DATETIME':
-          $randomData = usedatetime($e['val_min_date'], $e['val_max_date']);
-          break;
-        case 'INT':
-          $randomData = useint($e['val_min_nb'], $e['val_max_nb']);
-          break;
-        case 'TINYINT':
-          $randomData = usetiny($e['val_min_nb'], $e['val_max_nb']);
-          break;
-        case 'DOUBLE':
-          $randomData = usedouble($e['val_min_nb'], $e['val_max_nb']);
-          break;
-        case 'VARCHAR':
-          $randomData = usevarchar($e['longueur']);
-          break;
-        default:
-          $randomData = 'mauvais type';
-      }
-      $lineRandomData[$e['nom_champ']] = array($randomData, $e['type_champ']);
+      $lineRandomData[$e['nom_champ']] = array(getRandomData($e['type_champ']), $e['type_champ']);
     }
 
     $typeSansQuotes = array ('TINYINT', 'INT', 'BOOLEAN', 'DOUBLE', 'FLOAT');
