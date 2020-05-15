@@ -51,8 +51,8 @@
     return $randomData;
   }
 
-  function downloadFile () {
-    $file = "../userfile/output.sql"; 
+  function downloadFile ($modele) {
+    $file = "../userfile/" . $modele . ".sql"; 
 
     header("Content-Description: File Transfer"); 
     header("Content-Type: application/octet-stream"); 
@@ -114,6 +114,6 @@
   }
 
   fclose($file);
-  downloadFile();
+  downloadFile($modele);
   exit(); 
 ?>
