@@ -1,12 +1,12 @@
-CREATE TABLE `abcd` (
+CREATE TABLE `x` (
 	`madate` DATE DEFAULT NULL,
 	`monint` INT DEFAULT NULL,
 	`booool` BOOLEAN DEFAULT NULL,
 	`ville` VARCHAR(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `abcd` (`madate`, `monint`, `booool`, `ville`) VALUES
-('2020-08-14', 23, 1, 'MQM'),
-('2021-01-16', 13, 1, 'HR'),
-('2022-01-31', 9, 0, 'EYQBXBS'),
-('2021-01-21', 7, 1, 'SNS');
+INSERT INTO `x` (`madate`, `monint`, `booool`, `ville`) VALUES
+('2021-07-12', 4, 0, 'ZJSAZONC'),
+('2020-08-29', 28, 1, 'GPBGQFG'),
+('2021-02-13', 25, 0, 'YDGICIX'),
+('2022-04-01', 5, 0, 'JAHCG');

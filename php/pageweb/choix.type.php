@@ -106,7 +106,7 @@ if($_SESSION['nom_modele']==NULL){
             <div class="menu-field">
             <span class="field-name">Nom du fichier:</span>
             <br>
-            <input type="text" class="field-input" name="nom_champ">
+            <input type="text" class="field-input" name="nom_fichier">
             </div>
             <div class="menu-field">
             <span class="field-name">Nom de la table:</span>

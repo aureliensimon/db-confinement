@@ -18,7 +18,7 @@
     }
   }
 
-  function getRandomData ($type) {
+  function getRandomData ($e) {
     $randomData;
       switch ($e['type_champ']) {
         case 'DATE':
@@ -51,6 +51,16 @@
     return $randomData;
   }
 
+  function downloadFile () {
+    $file = "../userfile/output.sql"; 
+
+    header("Content-Description: File Transfer"); 
+    header("Content-Type: application/octet-stream"); 
+    header("Content-Disposition: attachment; filename=\"". $_POST['nom_fichier'] . '.sql' ."\""); 
+  
+    readfile ($file);
+  }
+
   $nomTable = $_POST['nom_table_sql'];
   $nombreLignes = $_POST['max'];
 
@@ -81,7 +91,7 @@
   
   for($ligne = 0; $ligne < $nombreLignes; $ligne++) {
     foreach($tab as &$e) {
-      $lineRandomData[$e['nom_champ']] = array(getRandomData($e['type_champ']), $e['type_champ']);
+      $lineRandomData[$e['nom_champ']] = array(getRandomData($e), $e['type_champ']);
     }
 
     $typeSansQuotes = array ('TINYINT', 'INT', 'BOOLEAN', 'DOUBLE', 'FLOAT');
@@ -104,4 +114,6 @@
   }
 
   fclose($file);
+  downloadFile();
+  exit(); 
 ?>
