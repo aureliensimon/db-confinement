@@ -66,7 +66,7 @@
   $modele = $_SESSION['nom_modele'];
   $tab = t(dbConnect(), $modele);
 
-  $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/output.sql','wb');
+  $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/'.$modele.'.sql','wb');
 
   fwrite($file, "CREATE TABLE `" . $nomTable . "` (\n");
 

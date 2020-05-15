@@ -1,8 +1,0 @@
-CREATE TABLE `cc` (
-	`int` INT DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `cc` (`int`) VALUES
-(3),
-(2),
-(3);
