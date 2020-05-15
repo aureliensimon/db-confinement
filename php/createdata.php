@@ -10,24 +10,13 @@ function usechar(){
     return $alphabet[$aleatoire];
 }
 
-
-
 function useheure(){
     $timestamp = mt_rand(1, time());
     $randomDate = date("H:i:s", $timestamp);
     return $randomDate;
 }
 
-
-
-
-
-
-
-
-
-
-function genererDate($min,$max){
+function useDate($min,$max){
     $start=strtotime($min);
     $end=strtotime($max);
     if ($start==NULL){
@@ -42,14 +31,9 @@ function genererDate($min,$max){
     
 }
 
-
-
-
-
-
 function usedatetime($min,$max){
     $format = 'Y-m-d H:i:s';
-    $heureetdate=genererDate($min,$max)." ".useheure();
+    $heureetdate=usrDate($min,$max)." ".useheure();
     
    $date = DateTime::createFromFormat($format, $heureetdate);
     return $date->format('Y-m-d H:i:s');
@@ -102,18 +86,5 @@ function usevarchar($longueur){
     }
     return $randomtext;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

@@ -102,7 +102,7 @@ if($_SESSION['nom_modele']==NULL){
         </form>
       </div>
       <div id="sql" class="p-2  bd-highlight align-self-center"> 
-      <form action=""   method="POST">
+      <form action="../generation.php"  method="POST">
             <div class="menu-field">
             <span class="field-name">Nom du fichier:</span>
             <br>
@@ -111,7 +111,7 @@ if($_SESSION['nom_modele']==NULL){
             <div class="menu-field">
             <span class="field-name">Nom de la table:</span>
             <br>
-            <input type="text" class="field-input" name="min">
+            <input type="text" class="field-input" name="nom_table_sql">
             </div>
             <div class="menu-field">
             <span class="field-name">Nombre de ligne:</span>
