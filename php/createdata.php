@@ -80,7 +80,11 @@ function usetiny($min,$max){
 
 function usevarchar($longueur){
     $randomtext="";
-    $taille=useint(1,$longueur);
+    if ($longueur > 100) {
+        $taille=useint(1, 100);
+    } else {
+        $taille=useint(1,$longueur);
+    }
     for ($i=0; $i < $taille; $i++) { 
         $randomtext=$randomtext.usechar();
     }

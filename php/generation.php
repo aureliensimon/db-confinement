@@ -1,8 +1,8 @@
 <?php
+  session_start();
   require_once('bdd/database.php');
   require_once('createdata.php');
-  session_start();
-
+  
   function t ($db,$nom_modele) {
     try {
       $request = 'SELECT  * FROM champ WHERE libelle=:nommodele';
@@ -63,12 +63,12 @@
 
   $nomTable = $_POST['nom_table_sql'];
   $nombreLignes = $_POST['max'];
+  $modele = $_SESSION['nom_modele'];
+  $tab = t(dbConnect(), $modele);
 
   $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/output.sql','wb');
 
   fwrite($file, "CREATE TABLE `" . $nomTable . "` (\n");
-  
-  $tab = t(dbConnect(), 'asc');
 
   foreach ($tab as &$e) {
     if ($e['longueur']) {
