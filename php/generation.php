@@ -51,16 +51,16 @@
     return $randomData;
   }
 
-  function downloadFile ($modele) {
-    $file = "../userfile/" . $modele . ".sql"; 
+  function downloadFile ($modele,$extension) {
+    $file = "../userfile/" . $modele .".". $extension; 
 
     header("Content-Description: File Transfer"); 
     header("Content-Type: application/octet-stream"); 
-    header("Content-Disposition: attachment; filename=\"". $_POST['nom_fichier'] . '.sql' ."\""); 
+    header("Content-Disposition: attachment; filename=\"". $_POST['nom_fichier'] .".". $extension ."\""); 
   
     readfile ($file);
   }
-
+/*
   $nomTable = $_POST['nom_table_sql'];
   $nombreLignes = $_POST['max'];
   $modele = $_SESSION['nom_modele'];
@@ -114,6 +114,6 @@
   }
 
   fclose($file);
-  downloadFile($modele);
+  downloadFile($modele,"sql");
   exit(); 
 ?>

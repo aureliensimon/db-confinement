@@ -85,11 +85,11 @@ if($_SESSION['nom_modele']==NULL){
 
     <div id="formfichier" class="d-flex bd-highlight">
       <div id="csv" class="p-2  bd-highlight align-self-center"> 
-      <form action=""   method="POST">
+      <form action="../generationcsv.php"   method="POST">
             <div class="menu-field">
             <span class="field-name">Nom du fichier:</span>
             <br>
-            <input type="text" class="field-input" name="nom_champ">
+            <input type="text" class="field-input" name="nom_fichier">
             </div>
             <div class="menu-field">
             <span class="field-name">Nombre de ligne:</span>
@@ -102,7 +102,7 @@ if($_SESSION['nom_modele']==NULL){
         </form>
       </div>
       <div id="sql" class="p-2  bd-highlight align-self-center"> 
-      <form action="../generation.php"  method="POST">
+      <form action="../generationsql.php"  method="POST">
             <div class="menu-field">
             <span class="field-name">Nom du fichier:</span>
             <br>
