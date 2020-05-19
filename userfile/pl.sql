@@ -3,8 +3,13 @@ CREATE TABLE `b` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `b` (`testt`) VALUES
-(''),
-(''),
-(''),
-(''),
-('');
+('ty
+'),
+('yu
+'),
+('yu
+'),
+('
+'),
+('
+');

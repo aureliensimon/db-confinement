@@ -92,7 +92,7 @@ function usevarchar($longueur){
 }
 
 function usefile ($fichier){
-    $fichier=file($fichier);
+    $fichier=file($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/' . $fichier);
     $taillefichier= sizeof($fichier);
     $aleatoire=useint(0,$taillefichier-1);
     
