@@ -1,0 +1,7 @@
+CREATE TABLE `a` (
+	`int` INT DEFAULT NULL,
+	`testt` VARCHAR DEFAULT NULL,
+	`testf` VARCHAR DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `a` (`int`, `testt`, `testf`) VALUES

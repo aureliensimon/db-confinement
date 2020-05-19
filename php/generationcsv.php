@@ -20,16 +20,9 @@ if(strcmp($_POST['nb_ligne'],"")==0 || $_SESSION['nom_modele']==NULL || strcmp($
         header("location:".  $_SERVER['HTTP_REFERER']);
     }
 }else{
-
-
-
     $nombreLignes = htmlspecialchars($_POST['nb_ligne']);
     $modele = $_SESSION['nom_modele'];
     $tab = t(dbConnect(), $modele);
-
-
-
-
 
     $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/'.$modele.'.csv','wb');
 
