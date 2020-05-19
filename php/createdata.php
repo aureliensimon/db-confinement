@@ -91,19 +91,13 @@ function usevarchar($longueur){
     return $randomtext;
 }
 
-function usefile ($fichier,$nbligne){
-    $fichier=file("test.txt");
+function usefile ($fichier){
+    $fichier=file($fichier);
     $taillefichier= sizeof($fichier);
-    $tablignerand=array();
-    for ($i=0; $i <$nbligne ; $i++) { 
-        array_push($tablignerand,useint(0,$taillefichier-1));
-    }
-    $finaldatafile=array();
-
-    for ($i=0; $i <$nbligne ; $i++) { 
-        array_push($finaldatafile,$fichier[$tablignerand[$i]]);
-    }
-    return $finaldatafile;
+    $aleatoire=useint(0,$taillefichier-1);
+    
+    return $fichier[$aleatoire];
 }
+
 
 ?>
