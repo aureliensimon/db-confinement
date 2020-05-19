@@ -22,14 +22,13 @@
 
   function getRandomData ($e) {
     $randomData;
-    if ($e['fichier']) {
-      $randomData = 'fichieer';
-      //$randomData = usefile($e['fichier']);
+    if ($e['fichier'] != '') {
+      $randomData = usefile($e['fichier']);
     } else if ($e['liste']) {
       $randomData = 'listee';
       //$randomData = usefile($e['liste']);
     } else {
-      switch ($e['type_champ']) {
+      switch ($e['type_champ']  != '') {
         case 'DATE':
           $randomData = useDate($e['val_min_date'], $e['val_max_date']);
           break;
