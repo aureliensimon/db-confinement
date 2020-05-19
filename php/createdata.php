@@ -94,9 +94,12 @@ function usevarchar($longueur){
 function usefile ($fichier){
     $fichier=file($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/' . $fichier);
     $taillefichier= sizeof($fichier);
+    if($taillefichier==0){
+        return "le fichier est vide";
+    }
     $aleatoire=useint(0,$taillefichier-1);
     
-    return $fichier[$aleatoire];
+    return trim($fichier[$aleatoire]);
 }
 
 
