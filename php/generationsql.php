@@ -1,48 +1,31 @@
 <?php
-<<<<<<< HEAD
   if(!isset($_SESSION)) { 
       session_start(); 
   } 
   require_once('bdd/database.php');
   require_once('createdata.php');
   require_once('generation.php');
-=======
 
-session_start();
-require_once('bdd/database.php');
-require_once('createdata.php');
-require_once('generation.php');
-$_SESSION['erreur']=NULL;
+  if (strcmp($_POST['nb_ligne'],"")==0||$_SESSION['nom_modele']==NULL||  strcmp($_POST['nom_fichier'],"")==0 || strcmp($_POST['nom_table_sql'],"")==0){
+      if( strcmp($_POST['nb_ligne'],"")==0){
+        $_SESSION['erreur']=displayerreur ("il manque un nombre de ligne");
+        header("location:".  $_SERVER['HTTP_REFERER']);
+      }
+      if( $_SESSION['nom_modele']==NULL){
+        header("location:".  $_SERVER['HTTP_REFERER']);
+      }
+      if( strcmp($_POST['nom_table_sql'],"")==0){
+        $_SESSION['erreur']=displayerreur ("il manque un nom de table");
+        header("location:".  $_SERVER['HTTP_REFERER']);
+      }
+      if( strcmp($_POST['nom_fichier'],"")==0){
+        $_SESSION['erreur']=displayerreur ("il manque un nom de fichier");
+        header("location:".  $_SERVER['HTTP_REFERER']);
+      }
+      
+  }else{
 
-
-
->>>>>>> 0bbefac6910890ff421a0bbeb38e677abccf9f8a
-
-if (strcmp($_POST['nb_ligne'],"")==0||$_SESSION['nom_modele']==NULL||  strcmp($_POST['nom_fichier'],"")==0 || strcmp($_POST['nom_table_sql'],"")==0){
-    if( strcmp($_POST['nb_ligne'],"")==0){
-      $_SESSION['erreur']=displayerreur ("il manque un nombre de ligne");
-      header("location:".  $_SERVER['HTTP_REFERER']);
-    }
-    if( $_SESSION['nom_modele']==NULL){
-      header("location:".  $_SERVER['HTTP_REFERER']);
-    }
-    if( strcmp($_POST['nom_table_sql'],"")==0){
-      $_SESSION['erreur']=displayerreur ("il manque un nom de table");
-      header("location:".  $_SERVER['HTTP_REFERER']);
-    }
-    if( strcmp($_POST['nom_fichier'],"")==0){
-      $_SESSION['erreur']=displayerreur ("il manque un nom de fichier");
-      header("location:".  $_SERVER['HTTP_REFERER']);
-    }
-    
-}else{
-
-
-<<<<<<< HEAD
-  $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/'.$modele.'.sql','w+');
-=======
->>>>>>> 0bbefac6910890ff421a0bbeb38e677abccf9f8a
-
+    $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/'.$modele.'.sql','w+');
 
     $nomTable = htmlspecialchars($_POST['nom_table_sql']);
     $nombreLignes = htmlspecialchars($_POST['nb_ligne']);
@@ -96,16 +79,9 @@ if (strcmp($_POST['nb_ligne'],"")==0||$_SESSION['nom_modele']==NULL||  strcmp($_
       }
     }
 
-<<<<<<< HEAD
-  fclose($file);
-  updateFileTableName(dbConnect(), $modele, $_POST['nom_fichier'], $nomTable);
-  downloadFile($modele,"sql");
-  exit(); 
-=======
     fclose($file);
+    updateFileTableName(dbConnect(), $modele, $_POST['nom_fichier'], $nomTable);
     downloadFile($modele,"sql");
-    exit(); 
-}
->>>>>>> 0bbefac6910890ff421a0bbeb38e677abccf9f8a
-
+    exit();
+  }
 ?>
