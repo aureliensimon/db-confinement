@@ -310,18 +310,6 @@ function insert_nom_modele($db,$nom_modele)
           echo      "<span>".$max."</span>";
       }
     }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
 
     function tableau($db,$nom_modele){
       try
@@ -386,22 +374,28 @@ function insert_nom_modele($db,$nom_modele)
       }
       catch (PDOException $exception)
       {
-      error_log('Request error: '.$exception->getMessage());
-      
-      return false;
+        error_log('Request error: '.$exception->getMessage());
+        return false;
       }
-
     }
-
-
 
     function displayerreur ($message){
       return "<div id=\"erreur\"> <span>".$message."</span> </div>";
     }
     
-
-
-
-
+    function updateFileTableName($db, $libelle, $nomFichier, $nomTable) {
+      try {
+        $request = 'UPDATE modele SET nom_fichier=:nomFichier, nom_table=:nomTable WHERE libelle=:libelle';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'libelle'=>$libelle,
+          'nomFichier'=>$nomFichier,
+          'nomTable'=>$nomTable
+        ));
+      } catch (PDOException $exception) {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+      }
+    }
 
 ?>

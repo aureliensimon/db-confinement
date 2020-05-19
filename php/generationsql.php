@@ -1,19 +1,17 @@
 <?php
-
-session_start();
-require_once('bdd/database.php');
-require_once('createdata.php');
-require_once('generation.php');
-
-
-
+  if(!isset($_SESSION)) { 
+      session_start(); 
+  } 
+  require_once('bdd/database.php');
+  require_once('createdata.php');
+  require_once('generation.php');
 
   $nomTable = $_POST['nom_table_sql'];
   $nombreLignes = $_POST['max'];
   $modele = $_SESSION['nom_modele'];
   $tab = t(dbConnect(), $modele);
 
-  $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/'.$modele.'.sql','wb');
+  $file = fopen($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/'.$modele.'.sql','w+');
 
   fwrite($file, "CREATE TABLE `" . $nomTable . "` (\n");
 
@@ -61,6 +59,7 @@ require_once('generation.php');
   }
 
   fclose($file);
+  updateFileTableName(dbConnect(), $modele, $_POST['nom_fichier'], $nomTable);
   downloadFile($modele,"sql");
   exit(); 
 

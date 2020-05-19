@@ -1,5 +1,7 @@
 <?php
-  session_start();
+  if(!isset($_SESSION)) { 
+    session_start(); 
+  } 
   require_once('bdd/database.php');
   require_once('createdata.php');
   
@@ -116,4 +118,5 @@
   fclose($file);
   downloadFile($modele,"sql");
   exit(); 
+  */
 ?>
