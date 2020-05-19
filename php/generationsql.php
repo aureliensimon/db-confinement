@@ -5,6 +5,7 @@
   require_once('bdd/database.php');
   require_once('createdata.php');
   require_once('generation.php');
+  $_SESSION['erreur']=NULL;
 
   if (strcmp($_POST['nb_ligne'],"")==0||$_SESSION['nom_modele']==NULL||  strcmp($_POST['nom_fichier'],"")==0 || strcmp($_POST['nom_table_sql'],"")==0){
       if( strcmp($_POST['nb_ligne'],"")==0){
