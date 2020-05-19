@@ -94,7 +94,7 @@ if($_SESSION['nom_modele']==NULL){
             <div class="menu-field">
             <span class="field-name">Nombre de ligne:</span>
             <br>
-            <input  type="text" class="field-input" name="max">
+            <input  type="text" class="field-input" name="nb_ligne">
             </div>
             <div class="buttons">
             <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .CSV</button>
@@ -116,7 +116,7 @@ if($_SESSION['nom_modele']==NULL){
             <div class="menu-field">
             <span class="field-name">Nombre de ligne:</span>
             <br>
-            <input  type="text" class="field-input" name="max">
+            <input  type="text" class="field-input" name="nb_ligne">
             </div>
             <div class="buttons">
             <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .SQL</button>
