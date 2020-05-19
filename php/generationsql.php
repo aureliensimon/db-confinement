@@ -4,6 +4,7 @@ session_start();
 require_once('bdd/database.php');
 require_once('createdata.php');
 require_once('generation.php');
+$_SESSION['erreur']=NULL;
 
 
 
