@@ -92,7 +92,7 @@ function usevarchar($longueur){
 }
 
 function usefile ($fichier){
-    $fichier=file($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/' . $fichier);
+    $fichier=file($fichier);
     $taillefichier= sizeof($fichier);
     if($taillefichier==0){
         return "le fichier est vide";

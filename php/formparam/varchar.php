@@ -70,7 +70,7 @@ echo $_SESSION['erreur'];
                 <option value="0">Select liste --</option>
                 <option value="villes.txt">Villes</option>
                 <option value="noms.txt">Noms</option>
-                <option value="verbs.txt">Verbes</option>
+                <option value="verbes.txt">Verbes</option>
                 <option value="adjectifs.txt">Adjectifs</option>
               </select>
             </div>

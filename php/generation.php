@@ -22,13 +22,12 @@
 
   function getRandomData ($e) {
     $randomData;
-    if ($e['fichier'] != '') {
-      $randomData = usefile($e['fichier']);
-    } else if ($e['liste']) {
-      $randomData = 'listee';
-      //$randomData = usefile($e['liste']);
+    if ($e['liste_txt']) {
+      $randomData = usefile($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/data/list/' .$e['liste_txt']);
+    } else if ($e['fichier'] ) {
+      $randomData = usefile($_SERVER['DOCUMENT_ROOT'] . '/db-confinement/userfile/' .$e['fichier']);
     } else {
-      switch ($e['type_champ']  != '') {
+      switch ($e['type_champ'] ) {
         case 'DATE':
           $randomData = useDate($e['val_min_date'], $e['val_max_date']);
           break;
