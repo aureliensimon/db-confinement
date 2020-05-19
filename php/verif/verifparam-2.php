@@ -2,21 +2,31 @@
     session_start();
     require_once('../bdd/database.php');
 
-    echo $_FILES['fichier']['name'];
+   
     $_SESSION['erreur']=NULL;
 
+    
+
+    
+
     //stockage ou non du fichier
-    if(isset($_FILES['fichier']['name'])){
-        $dossier = '../../userfile/';
-        $fichier = basename($_FILES['fichier']['name']);
-        if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
-        {
-              echo 'Upload effectué avec succès !';
+    if(isset($_FILES['fichier']['name']) AND $_FILES['fichier']['error'] == 0){
+        if($_FILES['monfichier']['size'] <= 1000000){
+            $infosfichier = pathinfo($_FILES['fichier']['name']);
+            $extension_upload = $infosfichier['extension'];
+            if (strcmp($extension_upload,"txt")){
+                $dossier = '../../userfile/';
+                $fichier = basename($_FILES['fichier']['name']);
+                if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+                {
+                    $fichier=$_FILES['fichier']['name'];
+                }
+                else 
+                {
+                    $fichier=NULL;
+                }
+            }
         }
-        else //Sinon (la fonction renvoie FALSE).
-        {
-              echo 'Echec de l\'upload !';
-         }
     }
 
 
@@ -60,8 +70,8 @@
 
 
 
-    if(strcmp($_POST['nom_champ'],'')==0 ||!isset($_POST['nom_champ'])){
-        $_SESSION['erreur']=displayerreur ("il manque un nom de champ");
+    if(strcmp($_POST['nom_champ'],'')==0 ||!isset($_POST['nom_champ']) || true_if_champ_exist(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'])){
+        $_SESSION['erreur']=displayerreur ("il manque un nom de champ ou un champ porte déjà le même nom");
         header("location:".  $_SERVER['HTTP_REFERER']); // revient sur la page précedente
     }else{
         switch ($_SESSION['mon_beau_type']) {

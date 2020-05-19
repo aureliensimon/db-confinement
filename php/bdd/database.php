@@ -398,4 +398,48 @@ function insert_nom_modele($db,$nom_modele)
       }
     }
 
+    function true_if_modele_exist($db,$nom_modele){
+      try
+      {
+      $request = 'SELECT *  FROM modele WHERE libelle=:nom_modele';
+      $statement = $db->prepare($request);
+      $statement->execute(array(
+        'nom_modele'=>$nom_modele
+      ));
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      if($result==array()){
+        return 0;
+      }else{
+        return 1;
+      }
+      }catch (PDOException $exception)
+      {
+      error_log('Request error: '.$exception->getMessage());
+      return false;
+      }
+    }
+
+
+    function true_if_champ_exist($db,$nom_modele,$nom_champ){
+      try
+      {
+      $request = 'SELECT *  FROM champ WHERE libelle=:nom_modele AND nom_champ=:nom_champ';
+      $statement = $db->prepare($request);
+      $statement->execute(array(
+        'nom_modele'=>$nom_modele,
+        'nom_champ'=>$nom_champ
+      ));
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      if($result==array()){
+        return 0;
+      }else{
+        return 1;
+      }
+      }catch (PDOException $exception)
+      {
+      error_log('Request error: '.$exception->getMessage());
+      return false;
+      }
+    }
+
 ?>
