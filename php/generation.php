@@ -40,6 +40,9 @@
         case 'DATETIME':
           $randomData = usedatetime($e['val_min_date'], $e['val_max_date']);
           break;
+        case 'TIME':
+          $randomData = useheure();
+          break;
         case 'INT':
           $randomData = useint($e['val_min_nb'], $e['val_max_nb']);
           break;

@@ -1,6 +1,0 @@
-CREATE TABLE `bc` (
-	`nomChamp` CHAR DEFAULT NULL,
-	`listE` VARCHAR DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `bc` (`nomChamp`, `listE`) VALUES
