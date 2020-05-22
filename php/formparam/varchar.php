@@ -54,7 +54,7 @@ echo $_SESSION['erreur'];
             <input type="text" class="field-input" name="nom_champ">
             </div>
             <div class="menu-field">
-            <span class="field-name">longueur</span>
+            <span class="field-name">longueur (max:100)</span>
             <br>
             <input type="text" class="field-input" name="longueur">
             </div>
