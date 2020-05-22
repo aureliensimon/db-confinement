@@ -290,6 +290,45 @@ function insert_nom_modele($db,$nom_modele)
     }
 
 
+    function delete_all_champ_from_libelle($db,$nom_modele)
+
+    
+    {
+        try
+        {
+        $request = 'DELETE FROM champ WHERE libelle=:nom_modele';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'nom_modele'=>$nom_modele
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+    function delete_libelle($db,$nom_modele)
+
+    
+    {
+        try
+        {
+        $request = 'DELETE FROM modele WHERE libelle=:nom_modele';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'nom_modele'=>$nom_modele
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+
+
     function dispayminmax($min,$max){
       if(!isset($min)&&!isset($max)){
        echo "<span> vous n'avez pas défini de limite </span>";
@@ -441,5 +480,44 @@ function insert_nom_modele($db,$nom_modele)
       return false;
       }
     }
+
+
+    function all_modele ($db){
+      try
+        {
+        $request = 'SELECT *  FROM modele' ;
+        $statement = $db->prepare($request);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+          foreach ($result as $valeur ) {
+            echo "<div class=\"modele row align-items-center\">";
+            echo    "<div class=\"col nom\">";
+            echo        "<span>".$valeur['libelle']."</span>";
+            echo    "</div>";
+            echo    "<div class=\"col col-lg-2 \">";
+            echo       "<form action=\"../verif/verif1-2.php\" method=\"post\">";
+            echo            "<input type=\"hidden\" name=\"nom_modele\" value=\"".$valeur['libelle']."\">";
+            echo            "<button  class=\"btn btn-success btn-lg \" type=\"submit\"> MODIFIER</button>";
+            echo      "</form>";
+            echo    "</div>";
+            echo    "<div class=\"col col-lg-2 \">";
+            echo       "<form action=\"../verif/deleteall.php\" method=\"post\">";
+            echo            "<input type=\"hidden\" name=\"nom_modele\" value=\"".$valeur['libelle']."\">";
+            echo            "<button  class=\"btn btn-danger btn-lg \" type=\"submit\"> SUPPRIMER</button>";
+            echo      "</form>";
+            echo    "</div>";
+            echo   "</div>";
+            echo    "<div class=\"ligne\"></div>";
+          }
+        }
+      catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return false;
+        }
+    }
+
+
 
 ?>

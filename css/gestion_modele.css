@@ -1,0 +1,25 @@
+.modele{
+    width: 100%;
+    height: 60px;
+   
+}
+
+#modeles{
+    margin: 5% 10% 5% 10%;  
+}
+
+.ligne{
+    width: 100%;
+    height: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: black dashed 2px;
+}
+
+.nom{
+    border: none;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+
