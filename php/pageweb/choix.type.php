@@ -86,6 +86,7 @@ if($_SESSION['nom_modele']==NULL){
           </div>
       </div>
 
+    <div id="le-span-a-deux-points">L'ordre des champs correspond à l'ordre croissant dans le tableau (première ligne = première colonne dans le fichier de sortie)</div>
     <div id="tableau">
           <div id="tableau-head" class="d-flex bd-highlight">
             <div  class="p-2  bd-highlight align-self-center suppr">SUPPR</div>
