@@ -33,7 +33,7 @@ function useDate($min,$max){
 
 function usedatetime($min,$max){
     $format = 'Y-m-d H:i:s';
-    $heureetdate=usrDate($min,$max)." ".useheure();
+    $heureetdate=useDate($min,$max)." ".useheure();
     
    $date = DateTime::createFromFormat($format, $heureetdate);
     return $date->format('Y-m-d H:i:s');

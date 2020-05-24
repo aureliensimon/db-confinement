@@ -31,7 +31,7 @@ switch ($_SESSION['mon_beau_type']) {
     case 'DATETIME':
         header("location:../formparam/date_datetime.php");
         break;
-    case 'DOUBLE FLOAT':
+    case 'DOUBLE':
         header("location:../formparam/int_tinyint_double-float.php");
         break;
     case 'TIME':
