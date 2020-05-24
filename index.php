@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/index2.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
@@ -30,14 +30,14 @@ session_start();
  <?php echo $_SESSION['erreur']; ?>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index2.php">DB CONFINEMENT<span>.</span></a>
+        <a class="navbar-brand" href="index.php">DB CONFINEMENT<span>.</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index2.php">Générer des données</a>
+              <a class="nav-link" href="index.php">Générer des données</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="php/pageweb/gestion_modele.php">Gestion modèles</a>

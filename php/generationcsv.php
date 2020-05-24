@@ -47,6 +47,7 @@ if(strcmp($_POST['nb_ligne'],"")==0 || $_SESSION['nom_modele']==NULL || strcmp($
 
 
     fclose($file);
+    updateFileTableName(dbConnect(), $modele, $_POST['nom_fichier'], '');
     downloadFile($modele,"csv");
     exit(); 
 }
