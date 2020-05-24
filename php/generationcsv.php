@@ -6,7 +6,7 @@ require_once('createdata.php');
 require_once('generation.php');
 $_SESSION['erreur']=NULL;
 
-
+// Vérification que tout les champs ont bien été rentrés correctement
 if(strcmp($_POST['nb_ligne'],"")==0 || $_SESSION['nom_modele']==NULL || strcmp($_POST['nom_fichier'],"")==0){
     if( strcmp($_POST['nb_ligne'],"")==0){
         $_SESSION['erreur']=displayerreur ("il manque un nombre de ligne");

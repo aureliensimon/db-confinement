@@ -5,6 +5,14 @@
   require_once('bdd/database.php');
   require_once('createdata.php');
   
+  /**
+  * Renvois tout les champ d'un modèle
+  *
+  * @param Database   base de donnée à laquelle se connecter
+  * @param nom_modele nom du modele
+  *
+  * @return Array     liste des champs
+  */
   function t ($db,$nom_modele) {
     try {
       $request = 'SELECT  * FROM champ WHERE libelle=:nommodele';
@@ -20,6 +28,13 @@
     }
   }
 
+  /**
+  * Renvois une valeur aléatoire selon son type
+  *
+  * @param Array      élément avec toutes ses caractéristiques (val min, max, longueur, ...)
+  *
+  * @return String    valeur aléatoire
+  */
   function getRandomData ($e) {
     $randomData;
     if ($e['liste_txt']) {
@@ -62,6 +77,12 @@
     return $randomData;
   }
 
+  /**
+  * Télécharge un fichier
+  *
+  * @param modele      nom du modele
+  * @param extension   nom de l'extension du fichier
+  */
   function downloadFile ($modele,$extension) {
     $file = "../userfile/" . $modele .".". $extension; 
 
