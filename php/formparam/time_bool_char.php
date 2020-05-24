@@ -40,10 +40,10 @@ echo $_SESSION['erreur'];
               <a class="nav-link" href="../../index2.php">Générer des données</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="gestion_modele.php">Gestion modèles</a>
+              <a class="nav-link" href="../pageweb/gestion_modele.php">Gestion modèles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="gestion_types.php">Back</a>
+              <a class="nav-link" href="../pageweb/gestion_types.php">Back</a>
             </li>
           </ul>
         </div>
