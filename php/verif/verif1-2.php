@@ -4,6 +4,7 @@ session_start();
 require_once('../bdd/database.php');
 $_SESSION['erreur']=NULL;
 
+// On affiche si le modèle existe
 echo true_if_modele_exist(dbConnect(),$_POST['nom_modele']);
 
 if(isset($_POST['nom_modele']) && strcmp($_POST['nom_modele'],'')!=0 ){

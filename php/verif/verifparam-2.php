@@ -1,13 +1,8 @@
 <?php
     session_start();
     require_once('../bdd/database.php');
-
    
     $_SESSION['erreur']=NULL;
-
-    
-
-    
 
     //stockage ou non du fichier
     if(isset($_FILES['fichier']['name']) AND $_FILES['fichier']['error'] == 0){
@@ -29,7 +24,7 @@
         }
     }
 
-
+    // Vérification et mise à zéro des extremums s'ils ne sont pas définis
 
     if(strcmp($_POST['max'],'')==0){
         $max=NULL;
@@ -62,14 +57,7 @@
         $liste=$_POST['liste'];
     }
     
-
-
-
-
-
-
-
-
+    // Vérification que tout les champs ont été remplis
     if(strcmp($_POST['nom_champ'],'')==0 ||!isset($_POST['nom_champ']) || true_if_champ_exist(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'])){
         $_SESSION['erreur']=displayerreur ("il manque un nom de champ ou un champ porte déjà le même nom");
         header("location:".  $_SERVER['HTTP_REFERER']); // revient sur la page précedente
