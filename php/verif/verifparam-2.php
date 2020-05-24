@@ -93,7 +93,7 @@
             case 'DATETIME':
                 insert_champ_date(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
-            case 'DOUBLE FLOAT':
+            case 'DOUBLE':
                 insert_champ_int_and_tiny(dbconnect(),$_SESSION['nom_modele'],$_POST['nom_champ'],$max,$min,$_SESSION['mon_beau_type'],$fichier);
                 break;
             case 'TIME':

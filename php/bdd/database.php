@@ -518,6 +518,48 @@ function insert_nom_modele($db,$nom_modele)
         }
     }
 
+    function changement_nom_modele($db,$new_name,$old_name)
+
+    
+    {
+        try
+        {
+        $request = 'UPDATE modele , champ SET libelle=:new_name WHERE libelle=:old_name';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'new_name'=>$new_name,
+          'old_name'=>$old_name
+          
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
+    function changement_libelle_table_champ($db,$new_name,$old_name)
+
+    
+    {
+        try
+        {
+        $request = 'UPDATE champ SET libelle=:new_name WHERE libelle=:old_name';
+        $statement = $db->prepare($request);
+        $statement->execute(array(
+          'new_name'=>$new_name,
+          'old_name'=>$old_name
+          
+        ));
+        }
+        catch (PDOException $exception)
+        {
+        error_log('Request error: '.$exception->getMessage());
+        return $exception;
+        }
+    }
+
 
 
 ?>

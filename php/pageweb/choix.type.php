@@ -54,23 +54,37 @@ if($_SESSION['nom_modele']==NULL){
           </ul>
         </div>
       </nav>
+      <div  class="d-flex bd-highlight justify-content-around">
+          <div id="choix_type" class="p-2  bd-highlight align-self-center">
+              <form method="POST" action="../verif/verif2-param.php">
+                <div class="menu-field">
+                      <span class="field-name">Choix du type à ajouter</span>
+                      <br>
 
-    <div id="choix_type">
-        <form method="POST" action="../verif/verif2-param.php">
-        <div class="menu-field">
-                <span class="field-name">Choix du type à ajouter</span>
-                <br>
+                      <select class="field-input" name="mon_beau_type" >
+                          <option value="0"> select type-- </option>
+                              <?php selecttruetype(dbConnect()); ?>
 
-                <select class="field-input" name="mon_beau_type" >
-                    <option value="0"> select type-- </option>
-                        <?php selecttruetype(dbConnect()); ?>
-
-                </select>
-                <div>
-                  <button type=submit  class="menu-button" id="button-ajouter"> AJOUTER</button>
+                      </select>
+                      <div>
+                        <button type=submit  class="menu-button" id="button-ajouter"> AJOUTER UN CHAMP</button>
+                      </div>
                 </div>
-        </form>
-    </div>
+              </form>
+          </div>
+          <div id="changementnom" class="p-2  bd-highlight align-self-center">
+              <form method="POST" action="../verif/changement_nom.php">
+                <div class="menu-field">
+                      <span class="field-name">Nouveau nom du modèle:</span>
+                      <br>
+                      <input  type="text" class="field-input" name="new_name">
+                      <div>
+                        <button style=" background-color:var(--red);" type=submit  class="menu-button" id="button-ajouter"> CHANGER LE NOM</button>
+                      </div>
+                </div>  
+              </form>
+          </div>
+      </div>
 
     <div id="tableau">
           <div id="tableau-head" class="d-flex bd-highlight">
@@ -86,44 +100,44 @@ if($_SESSION['nom_modele']==NULL){
           </div>
     </div>
 
-    <div id="formfichier" class="d-flex bd-highlight">
-      <div id="csv" class="p-2  bd-highlight align-self-center"> 
-      <form action="../generationcsv.php"   method="POST">
-            <div class="menu-field">
-            <span class="field-name">Nom du fichier:</span>
-            <br>
-            <input type="text" class="field-input" name="nom_fichier">
-            </div>
-            <div class="menu-field">
-            <span class="field-name">Nombre de ligne:</span>
-            <br>
-            <input  type="text" class="field-input" name="nb_ligne">
-            </div>
-            <div class="buttons">
-            <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .CSV</button>
-            </div>
-        </form>
+    <div id="formfichier" class="d-flex bd-highlight justify-content-around">
+      <div id="csv" class="p-2  bd-highlight align-self-stretch"> 
+        <form action="../generationcsv.php"   method="POST">
+              <div class="menu-field">
+              <span class="field-name">Nom du fichier:</span>
+              <br>
+              <input type="text" class="field-input" name="nom_fichier">
+              </div>
+              <div class="menu-field">
+              <span class="field-name">Nombre de ligne:</span>
+              <br>
+              <input  type="text" class="field-input" name="nb_ligne">
+              </div>
+              <div class="buttons">
+              <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .CSV</button>
+              </div>
+          </form>
       </div>
-      <div id="sql" class="p-2  bd-highlight align-self-center"> 
-      <form action="../generationsql.php"  method="POST">
-            <div class="menu-field">
-            <span class="field-name">Nom du fichier:</span>
-            <br>
-            <input type="text" class="field-input" name="nom_fichier">
-            </div>
-            <div class="menu-field">
-            <span class="field-name">Nom de la table:</span>
-            <br>
-            <input type="text" class="field-input" name="nom_table_sql">
-            </div>
-            <div class="menu-field">
-            <span class="field-name">Nombre de ligne:</span>
-            <br>
-            <input  type="text" class="field-input" name="nb_ligne">
-            </div>
-            <div class="buttons">
-            <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .SQL</button>
-            </div>
+      <div id="sql" class="p-2  bd-highlight align-self-stretch"> 
+        <form action="../generationsql.php"  method="POST">
+              <div class="menu-field">
+              <span class="field-name">Nom du fichier:</span>
+              <br>
+              <input type="text" class="field-input" name="nom_fichier">
+              </div>
+              <div class="menu-field">
+              <span class="field-name">Nom de la table:</span>
+              <br>
+              <input type="text" class="field-input" name="nom_table_sql">
+              </div>
+              <div class="menu-field">
+              <span class="field-name">Nombre de ligne:</span>
+              <br>
+              <input  type="text" class="field-input" name="nb_ligne">
+              </div>
+              <div class="buttons">
+              <button type="submit" class="menu-button" id="button-save">GENERER UN FICHIER .SQL</button>
+              </div>
         </form>
       </div>
     </div>

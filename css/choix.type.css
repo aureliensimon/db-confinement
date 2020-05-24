@@ -2,11 +2,16 @@
     background-color: var(--green);
     margin-top: 2%;
 }
-
+/*
 #formfichier{
     width: 100%;
 }
 
-#csv, #sql{
-    width: 50%;
+#csv, #sql,#choix_type,#changementnom{
+    margin: 7%;
 }
+
+
+#choix_type{
+
+}*/
