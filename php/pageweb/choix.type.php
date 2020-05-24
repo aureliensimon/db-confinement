@@ -97,9 +97,9 @@ if($_SESSION['nom_modele']==NULL){
           </div>
           <div id="tableau-lignes">
             <div id="no_champ">
-              <span > Aucun champ n'a été ajouté !!!</span>
+              <!--<span > Aucun champ n'a été ajouté !!!</span>-->
             </div>
-             <?php //tableau(dbConnect(),$_SESSION['nom_modele']);?>
+             <?php tableau(dbConnect(),$_SESSION['nom_modele']);?>
           </div>
     </div>
 
