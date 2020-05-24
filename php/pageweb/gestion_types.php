@@ -35,7 +35,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">DB CONFINEMENT<span>.</span></a>
+        <a class="navbar-brand" href="../../index2.php">DB CONFINEMENT<span>.</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,12 +44,15 @@
             <li class="nav-item ">
               <a class="nav-link" href="../../index2.php">Générer des données</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gestion_modele.php">Gestion modèles</a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="gestion_types.php">Gestion modèles</a>
+              <a class="nav-link" href="gestion_types.php">Back</a>
             </li>
           </ul>
         </div>
-    </nav>
+      </nav>
     <div class="d-flex bd-highlight" >
 
 
