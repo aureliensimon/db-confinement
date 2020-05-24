@@ -498,13 +498,13 @@ function insert_nom_modele($db,$nom_modele)
             echo    "<div class=\"col col-lg-2 \">";
             echo       "<form action=\"../verif/verif1-2.php\" method=\"post\">";
             echo            "<input type=\"hidden\" name=\"nom_modele\" value=\"".$valeur['libelle']."\">";
-            echo            "<button  class=\"btn btn-success btn-lg \" type=\"submit\"> MODIFIER</button>";
+            echo            "<button  class=\"btn btn-success btn-lg  modif \" type=\"submit\"> MODIFIER</button>";
             echo      "</form>";
             echo    "</div>";
             echo    "<div class=\"col col-lg-2 \">";
             echo       "<form action=\"../verif/deleteall.php\" method=\"post\">";
             echo            "<input type=\"hidden\" name=\"nom_modele\" value=\"".$valeur['libelle']."\">";
-            echo            "<button  class=\"btn btn-danger btn-lg \" type=\"submit\"> SUPPRIMER</button>";
+            echo            "<button  class=\"btn btn-danger btn-lg delete\" type=\"submit\"> SUPPRIMER</button>";
             echo      "</form>";
             echo    "</div>";
             echo   "</div>";
