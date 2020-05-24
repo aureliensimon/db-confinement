@@ -4,16 +4,9 @@
 }
 
 
-#no_champ{
-    width: 100%;
-    height: 50px;
-    border: solid 2px ;
-    text-align: center;
-    color: var(--red);
-    font-size: 1.2em;
-}
+
 
 #formfichier{
-    margin: 5%;
+    margin-top: 5%;
 }
 

@@ -96,9 +96,7 @@ if($_SESSION['nom_modele']==NULL){
             <div  class="p-2  bd-highlight align-self-center fichier">FICHIER</div>
           </div>
           <div id="tableau-lignes">
-            <div id="no_champ">
-              <!--<span > Aucun champ n'a été ajouté !!!</span>-->
-            </div>
+        
              <?php tableau(dbConnect(),$_SESSION['nom_modele']);?>
           </div>
     </div>
